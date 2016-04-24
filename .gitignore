@@ -1,0 +1,10 @@
+npm-debug.log
+node_modules
+temp
+.tmp
+dist
+.sass-cache
+build/*
+build_styleguide
+styleguide
+reports
