@@ -17,9 +17,7 @@ function RootDev(props) {
   return (
     <Provider store={store}>
       <div className="app">
-        <Router history={history}>
-          { routes }
-        </Router>
+        <Router history={history} routes={routes} />
         { showDevTools() }
       </div>
     </Provider>
