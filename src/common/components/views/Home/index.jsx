@@ -5,7 +5,7 @@ export default function Home() {
   const logoImage = require('./kiki.jpg')
 
   return (
-      <div className="page-content">Home</div>
+    <div className="page page-home">
       <div className="page-content">
         <h2>Home</h2>
         <p><img src={logoImage} alt="Kiki" /></p>
