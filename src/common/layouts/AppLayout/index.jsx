@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
+// *** STYLES *** //
+import 'common/styles/app.scss'
+
 const propTypes = {
   children: PropTypes.object
 }
