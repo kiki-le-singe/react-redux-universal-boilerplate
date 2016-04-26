@@ -82,6 +82,7 @@ const handleRender = ctx => {
         </Provider>
       )
       // Send the rendered page back to the client
+      _ctx.type = 'html'
       _ctx.status = 200
       _ctx.body = renderFullPage(html, finalState)
     } else {
