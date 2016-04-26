@@ -1,10 +1,11 @@
-import Express from 'express'
+import Koa from 'koa'
 import webpack from 'webpack'
 import _debug from 'debug'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
 import { Provider } from 'react-redux'
+import serve from 'koa-static'
 
 import webpackDevMiddleware from './middleware/webpack-dev'
 import webpackHotMiddleware from './middleware/webpack-hot'
@@ -15,14 +16,16 @@ import configureStore from 'common/redux/store'
 import routes from 'common/routes'
 
 const debug = _debug('app:server:dev')
-const app = new Express()
+const app = new Koa()
 const compiler = webpack(webpackConfig)
 const serverOptions = { publicPath: webpackConfig.output.publicPath }
+
+app.use(serve('static'))
 
 /* *******************
   WEBPACK CONFIGURATION
 ******************* */
-// Use this middleware to set up hot module reloading via webpack.
+// Use these middlewares to set up hot module reloading via webpack.
 app.use(webpackDevMiddleware(compiler, serverOptions))
 app.use(webpackHotMiddleware(compiler))
 
@@ -51,7 +54,7 @@ function renderFullPage(html, initialState) {
     `
 }
 
-function handleRender(req, res) {
+const handleRender = ctx => {
   // Compile an initial state
   const initialState = {}
   // Create a new Redux store instance
@@ -59,11 +62,16 @@ function handleRender(req, res) {
   // Grab the initial state from our Redux store
   const finalState = store.getState()
 
-  match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+  const _ctx = ctx
+  const { path: location } = _ctx
+
+  match({ routes, location }, (error, redirectLocation, renderProps) => {
     if (error) {
-      res.status(500).send(error.message)
+      _ctx.status = 500
+      _ctx.body = error.message
     } else if (redirectLocation) {
-      res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+      _ctx.status = 302
+      _ctx.redirect(`${redirectLocation.pathname}${redirectLocation.search}`)
     } else if (renderProps) {
       // Render the component to a string
       const html = renderToString(
@@ -74,9 +82,11 @@ function handleRender(req, res) {
         </Provider>
       )
       // Send the rendered page back to the client
-      res.status(200).send(renderFullPage(html, finalState))
+      _ctx.status = 200
+      _ctx.body = renderFullPage(html, finalState)
     } else {
-      res.status(404).send('Not found')
+      _ctx.status = 404
+      _ctx.body = 'Not found'
     }
   })
 }
@@ -88,10 +98,6 @@ app.use(handleRender)
  START THE SERVER
 ***************** */
 
-app.listen(projectConfig.SERVER_PORT, error => {
-  if (error) {
-    debug(error)
-  } else {
-    debug(`Express server listening on projectConfig.SERVER_PORT ${projectConfig.SERVER_PORT} in ${app.settings.env} node`)
-  }
+app.listen(projectConfig.SERVER_PORT, () => {
+  debug(`Koa server listening on projectConfig.SERVER_PORT ${projectConfig.SERVER_PORT} in ${app.env} node`)
 })
