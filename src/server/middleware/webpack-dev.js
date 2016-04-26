@@ -1,5 +1,6 @@
 import { argv } from 'yargs'
-import webpackDevMiddleware from 'webpack-dev-middleware'
+import koaWebpackDevMiddleware from 'koa-webpack-dev-middleware'
+import convert from 'koa-convert'
 
 const QUIET_MODE = !!argv.quiet
 
@@ -18,5 +19,5 @@ export default function (compiler, options) {
     historyApiFallback: true
   }
 
-  return webpackDevMiddleware(compiler, webpackDevMiddlewareOptions)
+  return convert(koaWebpackDevMiddleware(compiler, webpackDevMiddlewareOptions))
 }

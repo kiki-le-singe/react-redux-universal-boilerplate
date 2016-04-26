@@ -1,5 +1,6 @@
-import webpackHotMiddleware from 'webpack-hot-middleware'
+import koaWebpackHotMiddleware from 'koa-webpack-hot-middleware'
+import convert from 'koa-convert'
 
 export default function (compiler) {
-  return webpackHotMiddleware(compiler)
+  return convert(koaWebpackHotMiddleware(compiler))
 }

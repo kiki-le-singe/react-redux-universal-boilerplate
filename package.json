@@ -25,13 +25,13 @@
     "hot",
     "reload",
     "hmr",
-    "express",
+    "koa",
     "postcss",
     "cssnext",
     "isomorphic",
     "universal"
   ],
-  "description": "Get started with React, Redux, Express...",
+  "description": "Get started with React, Redux, Koa...",
   "engines": {
     "node": ">=5.0.0",
     "npm": "^3.3.12"
@@ -43,8 +43,10 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "debug": "^2.2.0",
-    "express": "^4.13.4",
     "font-awesome": "^4.6.1",
+    "koa": "^2.0.0",
+    "koa-convert": "^1.2.0",
+    "koa-static": "^3.0.0",
     "lodash": "^4.11.1",
     "normalize.css": "^4.1.1",
     "react": "^15.0.1",
@@ -84,6 +86,8 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "json-loader": "^0.5.4",
+    "koa-webpack-dev-middleware": "^1.2.0",
+    "koa-webpack-hot-middleware": "^1.0.3",
     "postcss-cssnext": "^2.5.2",
     "postcss-import": "^8.1.0",
     "postcss-loader": "^0.8.2",
@@ -93,9 +97,7 @@
     "redux-devtools-log-monitor": "^1.0.11",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.0",
-    "webpack-dev-middleware": "^1.5.1",
-    "webpack-hot-middleware": "^2.10.0"
+    "webpack": "^1.13.0"
   },
   "scripts": {
     "start": "npm run dev",
