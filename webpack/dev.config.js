@@ -51,7 +51,6 @@ const config = {
         test: /\.js[x]?$/,
         loader: 'babel',
         exclude: [nodeModulesDir],
-        // exclude: /node_modules/,
         include: [srcDir],
         query: {
           presets: ['react-hmre']
