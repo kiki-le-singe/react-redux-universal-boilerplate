@@ -58,6 +58,7 @@
     "redux-thunk": "^2.0.1",
     "serve-static": "^1.10.0",
     "superagent": "^1.8.3",
+    "webpack-isomorphic-tools": "^2.2.48",
     "yargs": "^4.6.0"
   },
   "devDependencies": {
