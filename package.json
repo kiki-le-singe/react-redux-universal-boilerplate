@@ -29,7 +29,7 @@
     "isomorphic",
     "universal"
   ],
-  "description": "Get started with React, Redux, Koa...",
+  "description": "Get started with a Universal boilerplate containing tools like React, Redux, Koa...",
   "engines": {
     "node": ">=5.0.0",
     "npm": "^3.3.12"
