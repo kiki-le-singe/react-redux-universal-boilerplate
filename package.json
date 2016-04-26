@@ -16,7 +16,6 @@
     "react",
     "react-router",
     "redux",
-    "font-awesome",
     "es6",
     "ES2015",
     "es7",
@@ -27,11 +26,10 @@
     "hmr",
     "koa",
     "postcss",
-    "cssnext",
     "isomorphic",
     "universal"
   ],
-  "description": "Get started with React, Redux, Koa...",
+  "description": "Get started with a Universal boilerplate containing tools like React, Redux, Koa...",
   "engines": {
     "node": ">=5.0.0",
     "npm": "^3.3.12"
@@ -43,7 +41,6 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "debug": "^2.2.0",
-    "font-awesome": "^4.6.1",
     "koa": "^2.0.0",
     "koa-convert": "^1.2.0",
     "koa-static": "^3.0.0",
@@ -58,9 +55,11 @@
     "redux-thunk": "^2.0.1",
     "serve-static": "^1.10.0",
     "superagent": "^1.8.3",
+    "webpack-isomorphic-tools": "^2.2.48",
     "yargs": "^4.6.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "babel-cli": "^6.7.7",
     "babel-core": "^6.7.7",
     "babel-eslint": "^6.0.3",
@@ -88,13 +87,14 @@
     "json-loader": "^0.5.4",
     "koa-webpack-dev-middleware": "^1.2.0",
     "koa-webpack-hot-middleware": "^1.0.3",
-    "postcss-cssnext": "^2.5.2",
+    "node-sass": "^3.6.0",
     "postcss-import": "^8.1.0",
     "postcss-loader": "^0.8.2",
     "postcss-url": "^5.1.1",
     "redux-devtools": "^3.2.0",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
+    "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0"

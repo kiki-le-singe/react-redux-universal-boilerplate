@@ -31,6 +31,14 @@ app.use(webpackHotMiddleware(compiler))
 
 
 function renderFullPage(html, initialState) {
+  const assets = webpackIsomorphicTools.assets()
+
+  // (will be present only in development mode)
+  // This is for the dev mode so it's not mandatory
+  // but recommended to speed up loading of styles
+  const styles = Object.keys(assets.styles).length === 0
+    ? `<style>${require('common/styles/app.scss')}</style>` : ''
+
   return `
     <!doctype html>
     <html>
@@ -41,6 +49,7 @@ function renderFullPage(html, initialState) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
         <title>React Redux Universal Boilerplate</title>
+        ${styles}
       </head>
 
       <body>
@@ -55,6 +64,12 @@ function renderFullPage(html, initialState) {
 }
 
 const handleRender = ctx => {
+  // clear require() cache if in development mode
+  // (makes asset hot reloading work)
+  if (__DEV__) {
+    webpackIsomorphicTools.refresh()
+  }
+
   // Compile an initial state
   const initialState = {}
   // Create a new Redux store instance

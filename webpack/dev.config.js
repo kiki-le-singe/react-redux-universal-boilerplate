@@ -1,9 +1,12 @@
 import webpack from 'webpack'
 import path from 'path'
 import _debug from 'debug'
+import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin'
 
+import isomorphicToolsConfig from './isomorphic.tools.config'
 import projectConfig, { paths } from '../config'
 
+const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(isomorphicToolsConfig)
 const debug = _debug('app:webpack:config:dev')
 const srcDir = paths('src')
 const nodeModulesDir = paths('nodeModules')
@@ -14,6 +17,7 @@ const deps = [
 
 debug('Create configuration.')
 const config = {
+  context: paths('base'),
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
@@ -47,7 +51,6 @@ const config = {
         test: /\.js[x]?$/,
         loader: 'babel',
         exclude: [nodeModulesDir],
-        // exclude: /node_modules/,
         include: [srcDir],
         query: {
           presets: ['react-hmre']
@@ -58,23 +61,24 @@ const config = {
         loader: 'json'
       },
       {
-        test: /\.css$/,
-        loader: 'style!css!postcss'
-      },
-      {
-        test: /\.(png|jpe?g)$/,
-        loader: 'file?name=img/[name].[ext]'
+        test: webpackIsomorphicToolsPlugin.regular_expression('styles'),
+        include: [srcDir],
+        loader: 'style!css!postcss!sass'
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file?name=fonts/[name].[ext]'
+      },
+      {
+        test: webpackIsomorphicToolsPlugin.regular_expression('images'),
+        loader: 'file?name=img/[name].[ext]'
       }
     ]
   },
   postcss: wPack => ([
     require('postcss-import')({ addDependencyTo: wPack }),
     require('postcss-url')(),
-    require('postcss-cssnext')()
+    require('autoprefixer')({ browsers: ['last 2 versions'] })
   ]),
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -87,7 +91,8 @@ const config = {
       __PROD__: projectConfig.__PROD__,
       __DEBUG__: projectConfig.__DEBUG__
     }),
-    new webpack.optimize.DedupePlugin()
+    new webpack.optimize.DedupePlugin(),
+    webpackIsomorphicToolsPlugin.development()
   ]
 }
 

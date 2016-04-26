@@ -1,0 +1,8 @@
+@import 'normalize.css/normalize.css';
+
+@import 'variables';
+@import 'views/index';
+
+body {
+  background: $bodyColor;
+}
