@@ -19,10 +19,13 @@ debug('Create configuration.')
 const config = {
   context: paths('base'),
   devtool: 'cheap-module-eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client?reload=true',
-    paths('entryApp')
-  ],
+  entry: {
+    app: [
+      'webpack-hot-middleware/client?reload=true',
+      paths('entryApp')
+    ],
+    vendors: projectConfig.VENDOR_DEPENDENCIES
+  },
   output: {
     path: paths('dist'),
     filename: '[name]-[hash].js',
@@ -84,6 +87,7 @@ const config = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[hash].js'),
     new webpack.DefinePlugin({
       __CLIENT__: projectConfig.__CLIENT__,
       __SERVER__: projectConfig.__SERVER__,

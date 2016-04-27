@@ -19,7 +19,9 @@ const config = {
   VENDOR_DEPENDENCIES: [
     'react',
     'react-dom',
+    'react-redux',
     'react-router',
+    'react-router-redux',
     'redux',
     'lodash',
     'classnames',
