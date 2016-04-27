@@ -32,11 +32,12 @@ app.use(webpackHotMiddleware(compiler))
 
 function renderFullPage(html, initialState) {
   const assets = webpackIsomorphicTools.assets()
+  const { styles, javascript } = assets
 
   // (will be present only in development mode)
   // This is for the dev mode so it's not mandatory
   // but recommended to speed up loading of styles
-  const styles = Object.keys(assets.styles).length === 0
+  const _styles = Object.keys(styles).length === 0
     ? `<style>${require('common/styles/app.scss')}</style>` : ''
 
   return `
@@ -49,7 +50,7 @@ function renderFullPage(html, initialState) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
         <title>React Redux Universal Boilerplate</title>
-        ${styles}
+        ${_styles}
       </head>
 
       <body>
@@ -57,7 +58,8 @@ function renderFullPage(html, initialState) {
         <script>
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
         </script>
-        <script src="/static/bundle.js"></script>
+        <script src=${javascript.vendors}></script>
+        <script src=${javascript.app}></script>
       </body>
     </html>
     `
