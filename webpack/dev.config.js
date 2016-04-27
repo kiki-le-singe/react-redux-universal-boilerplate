@@ -11,8 +11,8 @@ const debug = _debug('app:webpack:config:dev')
 const srcDir = paths('src')
 const nodeModulesDir = paths('nodeModules')
 const deps = [
-  'redux/dist/redux.min.js',
-  'font-awesome/css/font-awesome.min.css'
+  'react-router-redux/dist/ReactRouterRedux.min.js',
+  'redux/dist/redux.min.js'
 ]
 
 debug('Create configuration.')
