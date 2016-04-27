@@ -71,7 +71,7 @@ const config = {
       },
       {
         test: webpackIsomorphicToolsPlugin.regular_expression('images'),
-        loader: 'file?name=img/[name].[ext]'
+        loader: 'url?limit=10000'
       }
     ]
   },
