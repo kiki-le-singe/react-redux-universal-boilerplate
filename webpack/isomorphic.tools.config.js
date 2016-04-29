@@ -16,7 +16,7 @@ export default {
       extensions: ['png', 'jpg', 'jpeg', 'gif', 'ico', 'svg']
     },
     styles: {
-      extensions: ['css', 'scss'],
+      extensions: ['scss'],
       filter (module, regex, options, log) {
         if (options.development) {
           return WebpackIsomorphicToolsPlugin.style_loader_filter(module, regex, options, log)
