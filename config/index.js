@@ -33,8 +33,9 @@ const config = {
   ENTRY_APP: 'index',
   DIR_SRC: 'src',
   DIR_CLIENT: 'client',
-  DIR_ASSETS: 'assets',
+  DIR_STATIC: 'static',
   DIR_DIST: 'dist',
+  DIR_BUILD: 'build',
   DIR_SERVER: 'server',
   DIR_TEST: '__tests__',
   DIR_NODE_MODULES: 'node_modules'
@@ -49,8 +50,8 @@ const paths = (dir = 'base') => {
     base: base(),
     entryApp: base(config.DIR_SRC, config.DIR_CLIENT, config.ENTRY_APP),
     src: base(config.DIR_SRC),
-    assets: base(config.DIR_SRC, config.DIR_ASSETS),
-    dist: base(config.DIR_DIST),
+    dist: base(config.DIR_STATIC, config.DIR_DIST),
+    build: base(config.DIR_BUILD),
     server: base(config.DIR_SERVER),
     test: base(config.DIR_TEST),
     nodeModules: base(config.DIR_NODE_MODULES)
