@@ -37,6 +37,7 @@ function renderFullPage(html, initialState) {
   // (will be present only in development mode)
   // This is for the dev mode so it's not mandatory
   // but recommended to speed up loading of styles
+  // (resolves the initial style flash (flicker) on page load in development mode)
   let _styles = ''
   if (Object.keys(styles).length === 0) {
     for (const key in _assets) {
@@ -123,5 +124,5 @@ app.use(handleRender)
 ***************** */
 
 app.listen(projectConfig.SERVER_PORT, () => {
-  debug(`Koa server listening on projectConfig.SERVER_PORT ${projectConfig.SERVER_PORT} in ${app.env} node`)
+  debug(`Koa server listening on port ${projectConfig.SERVER_PORT} in ${app.env} node`)
 })
