@@ -14,6 +14,12 @@ const deps = [
   'react-router-redux/dist/ReactRouterRedux.min.js',
   'redux/dist/redux.min.js'
 ]
+const cssLoader = [
+  'css?modules',
+  'sourceMap',
+  'importLoaders=2',
+  'localIdentName=[name]__[local]___[hash:base64:5]'
+].join('&')
 
 debug('Create configuration.')
 const config = {
@@ -66,7 +72,12 @@ const config = {
       {
         test: webpackIsomorphicToolsPlugin.regular_expression('styles'),
         include: [srcDir],
-        loader: 'style!css!postcss!sass'
+        loaders: [
+          'style',
+          cssLoader,
+          'postcss',
+          'sass?sourceMap'
+        ]
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/,
