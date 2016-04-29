@@ -33,7 +33,7 @@ const config = {
     vendors: projectConfig.VENDOR_DEPENDENCIES
   },
   output: {
-    path: paths('dist'),
+    path: paths('build'),
     filename: '[name]-[hash].js',
     publicPath: '/static/'
   },
