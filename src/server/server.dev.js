@@ -32,13 +32,19 @@ app.use(webpackHotMiddleware(compiler))
 
 function renderFullPage(html, initialState) {
   const assets = webpackIsomorphicTools.assets()
-  const { styles, javascript } = assets
+  const { assets: _assets, styles, javascript } = assets
 
   // (will be present only in development mode)
   // This is for the dev mode so it's not mandatory
   // but recommended to speed up loading of styles
-  const _styles = Object.keys(styles).length === 0
-    ? `<style>${require('common/styles/app.scss')}</style>` : ''
+  let _styles = ''
+  if (Object.keys(styles).length === 0) {
+    for (const key in _assets) {
+      if (key.includes('.scss')) {
+        _styles += `<style>${_assets[key]._style}</style>`
+      }
+    }
+  }
 
   return `
     <!doctype html>
