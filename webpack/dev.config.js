@@ -35,7 +35,7 @@ const config = {
   output: {
     path: paths('build'),
     filename: '[name]-[hash].js',
-    publicPath: '/static/'
+    publicPath: '/build/'
   },
   resolve: {
     alias: {},
