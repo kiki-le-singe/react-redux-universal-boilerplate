@@ -25,7 +25,9 @@
     "reload",
     "hmr",
     "koa",
+    "sass",
     "postcss",
+    "css-modules",
     "isomorphic",
     "universal"
   ],
