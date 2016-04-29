@@ -105,6 +105,7 @@
     "compile": "NODE_ENV=production babel-node ./node_modules/.bin/webpack --optimize-minimize --progress --config ./webpack/prod.config",
     "clean:dist": "rm -rf static/dist",
     "deploy": "npm run clean:dist && npm run compile",
+    "prod": "DEBUG=app:* cross-env NODE_PATH=src NODE_ENV=production babel-node src/server/index.js",
     "start": "npm run dev",
     "dev": "DEBUG=app:* cross-env NODE_PATH=src babel-node -- src/server/index.js"
   }
