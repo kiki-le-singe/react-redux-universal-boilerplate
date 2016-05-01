@@ -13,9 +13,11 @@ const config = {
   __DEBUG__: !!argv.debug,
 
   // Server Configuration
+  SERVER_HOST: 'localhost',
   SERVER_PORT: process.env.PORT || 3000,
 
   // Webpack Configuration
+  WEBPACK_DEV_SERVER_PORT: 3001,
   VENDOR_DEPENDENCIES: [
     'react',
     'react-dom',

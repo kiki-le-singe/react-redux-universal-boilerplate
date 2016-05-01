@@ -20,6 +20,16 @@ const cssLoader = [
   'importLoaders=2',
   'localIdentName=[name]__[local]___[hash:base64:5]'
 ].join('&')
+const {
+  SERVER_HOST,
+  VENDOR_DEPENDENCIES,
+  WEBPACK_DEV_SERVER_PORT,
+  __CLIENT__,
+  __SERVER__,
+  __DEV__,
+  __PROD__,
+  __DEBUG__
+} = projectConfig
 
 debug('Create configuration.')
 const config = {
@@ -27,15 +37,15 @@ const config = {
   devtool: 'cheap-module-eval-source-map',
   entry: {
     app: [
-      'webpack-hot-middleware/client?reload=true',
+      `webpack-hot-middleware/client?reload=true&path=http://${SERVER_HOST}:${WEBPACK_DEV_SERVER_PORT}/__webpack_hmr`,
       paths('entryApp')
     ],
-    vendors: projectConfig.VENDOR_DEPENDENCIES
+    vendors: VENDOR_DEPENDENCIES
   },
   output: {
     path: paths('build'),
     filename: '[name]-[hash].js',
-    publicPath: '/build/'
+    publicPath: `http://localhost:${WEBPACK_DEV_SERVER_PORT}/build/`
   },
   resolve: {
     alias: {},
@@ -101,11 +111,11 @@ const config = {
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[hash].js'),
     new webpack.DefinePlugin({
-      __CLIENT__: projectConfig.__CLIENT__,
-      __SERVER__: projectConfig.__SERVER__,
-      __DEV__: projectConfig.__DEV__,
-      __PROD__: projectConfig.__PROD__,
-      __DEBUG__: projectConfig.__DEBUG__
+      __CLIENT__,
+      __SERVER__,
+      __DEV__,
+      __PROD__,
+      __DEBUG__
     }),
     new webpack.optimize.DedupePlugin(),
     webpackIsomorphicToolsPlugin.development()
