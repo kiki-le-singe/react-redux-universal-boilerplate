@@ -45,11 +45,12 @@
     "debug": "^2.2.0",
     "koa": "^2.0.0",
     "koa-convert": "^1.2.0",
+    "koa-proxy": "^0.6.0",
     "koa-static": "^3.0.0",
     "lodash": "^4.11.1",
     "normalize.css": "^4.1.1",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.2",
@@ -57,7 +58,7 @@
     "redux-thunk": "^2.0.1",
     "serve-static": "^1.10.0",
     "superagent": "^1.8.3",
-    "webpack-isomorphic-tools": "^2.2.48",
+    "webpack-isomorphic-tools": "^2.2.50",
     "yargs": "^4.6.0"
   },
   "devDependencies": {
@@ -75,6 +76,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.7.2",
     "babel-runtime": "^6.6.1",
+    "concurrently": "^2.0.0",
     "copy-webpack-plugin": "^2.1.1",
     "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
@@ -91,8 +93,8 @@
     "koa-webpack-hot-middleware": "^1.0.3",
     "node-sass": "^3.6.0",
     "postcss-import": "^8.1.0",
-    "postcss-loader": "^0.8.2",
-    "postcss-url": "^5.1.1",
+    "postcss-loader": "^0.9.1",
+    "postcss-url": "^5.1.2",
     "redux-devtools": "^3.2.0",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
@@ -106,7 +108,8 @@
     "clean:dist": "rm -rf static/dist",
     "deploy": "npm run clean:dist && npm run compile && npm run prod",
     "prod": "DEBUG=app:* cross-env NODE_PATH=src NODE_ENV=production babel-node src/server/index.js",
-    "start": "npm run dev",
-    "dev": "DEBUG=app:* cross-env NODE_PATH=src babel-node -- src/server/index.js"
+    "start": "concurrently --kill-others --raw \"npm run start:client:server\" \"npm run start:server\"",
+    "start:server": "DEBUG=app:* cross-env NODE_PATH=src babel-node -- src/server/index.js",
+    "start:client:server": "DEBUG=app:* babel-node webpack/dev.server.js"
   }
 }

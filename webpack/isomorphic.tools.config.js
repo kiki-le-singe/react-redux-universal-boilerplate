@@ -1,11 +1,6 @@
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin'
-import _debug from 'debug'
 
 import projectConfig from '../config'
-
-const debug = _debug('app:webpack:isomorphic:tools:config')
-
-debug('Create configuration.')
 
 // https://github.com/halt-hammerzeit/webpack-isomorphic-tools#configuration
 // https://github.com/halt-hammerzeit/webpack-isomorphic-tools#style-loader-css-stylesheets-with-css-modules-feature

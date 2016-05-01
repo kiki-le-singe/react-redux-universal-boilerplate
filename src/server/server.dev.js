@@ -1,33 +1,28 @@
 import Koa from 'koa'
-import webpack from 'webpack'
 import _debug from 'debug'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
 import { Provider } from 'react-redux'
 import serve from 'koa-static'
+import proxy from 'koa-proxy'
+import convert from 'koa-convert'
 
-import webpackDevMiddleware from './middleware/webpack-dev'
-import webpackHotMiddleware from './middleware/webpack-hot'
 import projectConfig from '../../config'
-import webpackConfig from '../../webpack/dev.config'
 
 import configureStore from 'common/redux/store'
 import routes from 'common/routes'
 
 const debug = _debug('app:server:dev')
 const app = new Koa()
-const compiler = webpack(webpackConfig)
-const serverOptions = { publicPath: webpackConfig.output.publicPath }
+const { SERVER_HOST, SERVER_PORT, WEBPACK_DEV_SERVER_PORT } = projectConfig
 
 app.use(serve('static'))
 
-/* *******************
-  WEBPACK CONFIGURATION
-******************* */
-// Use these middlewares to set up hot module reloading via webpack.
-app.use(webpackDevMiddleware(compiler, serverOptions))
-app.use(webpackHotMiddleware(compiler))
+app.use(convert(proxy({
+  host: `http://${SERVER_HOST}:${WEBPACK_DEV_SERVER_PORT}`,
+  match: /^\/build\//
+})))
 
 
 function renderFullPage(html, initialState) {
@@ -123,6 +118,6 @@ app.use(handleRender)
  START THE SERVER
 ***************** */
 
-app.listen(projectConfig.SERVER_PORT, () => {
-  debug(`Koa server listening on port ${projectConfig.SERVER_PORT} in ${app.env} node`)
+app.listen(SERVER_PORT, () => {
+  debug(`Koa server listening on port ${SERVER_PORT} in ${app.env} node`)
 })

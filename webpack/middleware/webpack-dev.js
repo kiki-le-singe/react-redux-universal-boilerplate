@@ -16,7 +16,9 @@ export default function (compiler, options) {
     },
     hot: true,
     lazy: false,
-    historyApiFallback: true
+    historyApiFallback: true,
+    contentBase: 'http://localhost:3001',
+    headers: { 'Access-Control-Allow-Origin': '*' }
   }
 
   return convert(koaWebpackDevMiddleware(compiler, webpackDevMiddlewareOptions))
