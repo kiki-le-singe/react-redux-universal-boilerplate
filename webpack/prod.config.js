@@ -16,6 +16,14 @@ const cssLoader = [
   'importLoaders=2',
   'localIdentName=[name]__[local]___[hash:base64:5]'
 ].join('&')
+const {
+  VENDOR_DEPENDENCIES,
+  __CLIENT__,
+  __SERVER__,
+  __DEV__,
+  __PROD__,
+  __DEBUG__
+} = projectConfig
 
 debug('Create configuration.')
 const config = {
@@ -23,7 +31,7 @@ const config = {
   devtool: 'source-ma',
   entry: {
     app: paths('entryApp'),
-    vendors: projectConfig.VENDOR_DEPENDENCIES
+    vendors: VENDOR_DEPENDENCIES
   },
   output: {
     path: paths('dist'),
@@ -73,11 +81,11 @@ const config = {
       allChunks: true
     }),
     new webpack.DefinePlugin({
-      __CLIENT__: projectConfig.__CLIENT__,
-      __SERVER__: projectConfig.__SERVER__,
-      __DEV__: projectConfig.__DEV__,
-      __PROD__: projectConfig.__PROD__,
-      __DEBUG__: projectConfig.__DEBUG__
+      __CLIENT__,
+      __SERVER__,
+      __DEV__,
+      __PROD__,
+      __DEBUG__
     }),
     new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[hash].js'),
 
