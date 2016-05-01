@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
+// *** STYLES *** //
+import 'common/styles/app.scss'
+
 const propTypes = {
   children: PropTypes.object
 }
 
 function AppLayout(props) {
-  // *** STYLES *** //
-  require('common/styles/app.scss')
-
   return (
     <div className="views">
       <ul>

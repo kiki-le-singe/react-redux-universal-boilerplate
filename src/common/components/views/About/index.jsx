@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function About() {
-  const styles = require('./About.scss')
+import styles from './About.scss'
 
+export default function About() {
   return (
     <div className="page">
       <div className="page-content">
