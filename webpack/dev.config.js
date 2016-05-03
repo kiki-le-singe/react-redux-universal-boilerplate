@@ -72,8 +72,7 @@ const config = {
         exclude: [nodeModulesDir],
         include: [srcDir],
         query: {
-          cacheDirectory: true,
-          presets: ['react-hmre']
+          cacheDirectory: true
         }
       },
       {
