@@ -1,9 +1,3 @@
-let Root
-
-if (__DEV__) {
-  Root = require('./RootDev').default // eslint-disable-line
-} else {
-  Root = require('./RootProd').default // eslint-disable-line
-}
+const Root = __DEV__ ? require('./RootDev').default : require('./RootProd').default
 
 export default Root
