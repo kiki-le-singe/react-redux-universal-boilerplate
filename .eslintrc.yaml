@@ -33,3 +33,4 @@ globals:
 rules:
   semi: [2, "never"]
   comma-dangle: [1, "never"]
+  no-underscore-dangle: off
