@@ -28,7 +28,7 @@ const handleRender = ctx => {
   const store = configureStore(initialState)
 
   const _ctx = ctx
-  const { path: location } = _ctx
+  const { url: location } = _ctx
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
     if (error) {
