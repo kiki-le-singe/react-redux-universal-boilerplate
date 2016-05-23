@@ -76,7 +76,6 @@
     "babel-runtime": "^6.6.1",
     "concurrently": "^2.1.0",
     "copy-webpack-plugin": "^3.0.0",
-    "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
     "eslint": "^2.10.2",
     "eslint-config-airbnb": "^9.0.1",
@@ -106,9 +105,9 @@
     "compile": "NODE_ENV=production babel-node ./node_modules/.bin/webpack --optimize-minimize --progress --config ./webpack/prod.config",
     "clean:dist": "rm -rf static/dist",
     "deploy": "npm run clean:dist && npm run compile && npm run prod",
-    "prod": "DEBUG=app:* cross-env NODE_PATH=src NODE_ENV=production babel-node src/server/index.js",
+    "prod": "DEBUG=app:* NODE_PATH=src NODE_ENV=production babel-node src/server/index.js",
     "start": "concurrently --kill-others --raw \"npm run start:client:server\" \"npm run start:server\"",
-    "start:server": "DEBUG=app:* cross-env NODE_PATH=src babel-node -- src/server/index.js",
+    "start:server": "DEBUG=app:* NODE_PATH=src babel-node -- src/server/index.js",
     "start:client:server": "DEBUG=app:* babel-node webpack/dev.server.js"
   }
 }
