@@ -8,6 +8,7 @@ parserOptions:
   ecmaVersion: 7
   ecmaFeatures:
     jsx: true
+    experimentalObjectRestSpread: true
 plugins:
   - react
   - jsx-a11y
