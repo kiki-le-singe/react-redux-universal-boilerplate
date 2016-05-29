@@ -10,6 +10,7 @@ const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(isomorphic
 const debug = _debug('app:webpack:config:dev')
 const srcDir = paths('src')
 const nodeModulesDir = paths('nodeModules')
+const globalStylesDir = paths('globalStyles')
 const deps = [
   'react-router-redux/dist/ReactRouterRedux.min.js',
   'redux/dist/redux.min.js'
@@ -17,7 +18,7 @@ const deps = [
 const cssLoader = [
   'css?modules',
   'sourceMap',
-  'importLoaders=2',
+  'importLoaders=1',
   'localIdentName=[name]__[local]___[hash:base64:5]'
 ].join('&')
 const {
@@ -82,11 +83,20 @@ const config = {
       {
         test: webpackIsomorphicToolsPlugin.regular_expression('styles'),
         include: [srcDir],
+        exclude: [globalStylesDir],
         loaders: [
           'style',
           cssLoader,
-          'postcss',
-          'sass?sourceMap'
+          'postcss'
+        ]
+      },
+      {
+        test: /common\/styles\/global\/app\.css$/,
+        include: [srcDir],
+        loaders: [
+          'style',
+          'css?sourceMap',
+          'postcss'
         ]
       },
       {
@@ -102,7 +112,7 @@ const config = {
   postcss: wPack => ([
     require('postcss-import')({ addDependencyTo: wPack }),
     require('postcss-url')(),
-    require('autoprefixer')({ browsers: ['last 2 versions'] })
+    require('postcss-cssnext')()
   ]),
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),

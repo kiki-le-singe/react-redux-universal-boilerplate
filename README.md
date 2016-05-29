@@ -1,5 +1,7 @@
 # React Redux Universal Boilerplate
 
+An Universal ReactJS/Redux Boilerplate.
+
 ## Installation
 
 ```shell
@@ -63,8 +65,40 @@ Starts the `prod` server to serve your app at `localhost:3000`.
 * [koa](https://github.com/koajs/koa)
 * [eslint](http://eslint.org)
 * [Universal (Isomorphic)](http://isomorphic.net)
-* [Sass](http://sass-lang.com/)
+* [postcss-cssnext](https://github.com/MoOx/postcss-cssnext)
 * [css-modules](https://github.com/css-modules/css-modules)
+
+
+## Styles
+
+You can use `.css` file extensions using the latest CSS syntax with [`postcss-cssnext`](https://github.com/MoOx/postcss-cssnext).
+See the `~/src/common/styles/global` directory to implement global styles (site's theme for example) and see an example of use case css module `~/src/common/components/views/About`. There is also a `~/src/common/styles/local` directory for common local styles (css modules).
+
+Are there any other solutions ? Fortunately yes!
+
+> I could try one of these following options if what I implemented doesn't work very well...
+
+* It's possible to use `css-modules` for [`Theming`](https://github.com/css-modules/css-modules/blob/master/docs/theming.md)
+* Or another solution without `css-modules` with [`react-pacomo`](https://github.com/unicorn-standard/react-pacomo).
+* Obviously you can use the traditional method (it works very well) to do your own css:
+
+```css
+.foo-namespace {
+  .baz {
+    ...
+  }
+  .bar {
+    ...
+  }
+}
+```
+
+```html
+<div className="foo-namespace">
+  <div className="baz">baz</div>
+  <div className="bar">bar</div>
+</div>
+```
 
 
 ## Globals
@@ -107,5 +141,4 @@ global.__DEBUG__ = projectConfig.__DEBUG__
 
  * [css-modules](https://github.com/css-modules/css-modules)
  * [css-loader's local-scope](https://github.com/webpack/css-loader#local-scope)
- * [cross-env](https://github.com/kentcdodds/cross-env)
  * [Concurrently](https://github.com/kimmobrunfeldt/concurrently)

@@ -25,7 +25,7 @@
     "reload",
     "hmr",
     "koa",
-    "sass",
+    "cssnext",
     "postcss",
     "css-modules",
     "isomorphic",
@@ -59,7 +59,6 @@
     "yargs": "^4.7.1"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.3",
@@ -86,14 +85,13 @@
     "json-loader": "^0.5.4",
     "koa-webpack-dev-middleware": "^1.2.1",
     "koa-webpack-hot-middleware": "^1.0.3",
-    "node-sass": "^3.7.0",
+    "postcss-cssnext": "^2.5.2",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
     "postcss-url": "^5.1.2",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
-    "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1"
