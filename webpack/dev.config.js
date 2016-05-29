@@ -10,6 +10,7 @@ const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(isomorphic
 const debug = _debug('app:webpack:config:dev')
 const srcDir = paths('src')
 const nodeModulesDir = paths('nodeModules')
+const globalStylesDir = paths('globalStyles')
 const deps = [
   'react-router-redux/dist/ReactRouterRedux.min.js',
   'redux/dist/redux.min.js'
@@ -82,12 +83,20 @@ const config = {
       {
         test: webpackIsomorphicToolsPlugin.regular_expression('styles'),
         include: [srcDir],
+        exclude: [globalStylesDir],
         loaders: [
           'style',
           cssLoader,
           'postcss'
         ]
       },
+      {
+        test: /common\/styles\/global\/app\.css$/,
+        include: [srcDir],
+        loaders: [
+          'style',
+          'css?sourceMap',
+          'postcss'
         ]
       },
       {

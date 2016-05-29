@@ -10,6 +10,7 @@ const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(isomorphic
 const debug = _debug('app:webpack:config:prod')
 const srcDir = paths('src')
 const nodeModulesDir = paths('nodeModules')
+const globalStylesDir = paths('globalStyles')
 const cssLoader = [
   'css?modules',
   'sourceMap',
@@ -59,7 +60,14 @@ const config = {
       },
       {
         test: webpackIsomorphicToolsPlugin.regular_expression('styles'),
+        include: [srcDir],
+        exclude: [globalStylesDir],
         loader: ExtractTextPlugin.extract('style', `${cssLoader}!postcss`)
+      },
+      {
+        test: /common\/styles\/global\/app\.css$/,
+        include: [srcDir],
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/,
