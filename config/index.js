@@ -25,9 +25,7 @@ const config = {
     'react-router',
     'react-router-redux',
     'redux',
-    'lodash',
-    'classnames',
-    'superagent'
+    'classnames'
   ],
 
   // Project Structure
