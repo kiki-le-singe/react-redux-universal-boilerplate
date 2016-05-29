@@ -17,7 +17,7 @@ const deps = [
 const cssLoader = [
   'css?modules',
   'sourceMap',
-  'importLoaders=2',
+  'importLoaders=1',
   'localIdentName=[name]__[local]___[hash:base64:5]'
 ].join('&')
 const {
@@ -85,8 +85,9 @@ const config = {
         loaders: [
           'style',
           cssLoader,
-          'postcss',
-          'sass?sourceMap'
+          'postcss'
+        ]
+      },
         ]
       },
       {
@@ -102,7 +103,7 @@ const config = {
   postcss: wPack => ([
     require('postcss-import')({ addDependencyTo: wPack }),
     require('postcss-url')(),
-    require('autoprefixer')({ browsers: ['last 2 versions'] })
+    require('postcss-cssnext')()
   ]),
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),

@@ -13,7 +13,7 @@ const nodeModulesDir = paths('nodeModules')
 const cssLoader = [
   'css?modules',
   'sourceMap',
-  'importLoaders=2',
+  'importLoaders=1',
   'localIdentName=[name]__[local]___[hash:base64:5]'
 ].join('&')
 const {
@@ -59,7 +59,7 @@ const config = {
       },
       {
         test: webpackIsomorphicToolsPlugin.regular_expression('styles'),
-        loader: ExtractTextPlugin.extract('style', `${cssLoader}!postcss!sass?sourceMap`)
+        loader: ExtractTextPlugin.extract('style', `${cssLoader}!postcss`)
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -74,7 +74,7 @@ const config = {
   postcss: wPack => ([
     require('postcss-import')({ addDependencyTo: wPack }),
     require('postcss-url')(),
-    require('autoprefixer')({ browsers: ['last 2 versions'] })
+    require('postcss-cssnext')()
   ]),
   plugins: [
     new ExtractTextPlugin('[name].[contenthash].css', {
