@@ -1,0 +1,8 @@
+@import 'normalize.css/normalize';
+
+@import 'variables';
+@import 'views';
+
+body {
+  background: var(--bodyColor);
+}

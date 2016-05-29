@@ -1,0 +1,7 @@
+.page-hello {
+  color: green;
+
+  @nest & .text {
+    color: blue;
+  }
+}
