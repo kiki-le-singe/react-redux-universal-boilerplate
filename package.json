@@ -36,10 +36,6 @@
     "node": ">=5.0.0",
     "npm": "^3.3.12"
   },
-  "files": [
-    "CHANGELOG.md",
-    "README.md"
-  ],
   "dependencies": {
     "classnames": "^2.2.5",
     "debug": "^2.2.0",
