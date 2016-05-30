@@ -79,7 +79,6 @@ Are there any other solutions ? Fortunately yes!
 > I could try one of these following options if what I implemented doesn't work very well...
 
 * It's possible to use `css-modules` for [`Theming`](https://github.com/css-modules/css-modules/blob/master/docs/theming.md)
-* Or another solution without `css-modules` with [`react-pacomo`](https://github.com/unicorn-standard/react-pacomo).
 * Obviously you can use the traditional method (it works very well) to do your own css:
 
 ```css
