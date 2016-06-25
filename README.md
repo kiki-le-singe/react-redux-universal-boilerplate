@@ -142,3 +142,4 @@ global.__DEBUG__ = projectConfig.__DEBUG__
  * [css-modules](https://github.com/css-modules/css-modules)
  * [css-loader's local-scope](https://github.com/webpack/css-loader#local-scope)
  * [Concurrently](https://github.com/kimmobrunfeldt/concurrently)
+ * [html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
