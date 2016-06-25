@@ -2,6 +2,7 @@ import webpack from 'webpack'
 import _debug from 'debug'
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import CleanWebpackPlugin from 'clean-webpack-plugin'
 
 import isomorphicToolsConfig from './isomorphic.tools.config'
 import projectConfig, { paths } from '../config'
@@ -85,6 +86,9 @@ const config = {
     require('postcss-cssnext')()
   ]),
   plugins: [
+    new CleanWebpackPlugin(['static/dist'], {
+      root: paths('base')
+    }),
     new ExtractTextPlugin('[name].[contenthash].css', {
       allChunks: true
     }),

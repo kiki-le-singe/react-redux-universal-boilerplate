@@ -66,6 +66,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
     "babel-runtime": "^6.9.2",
+    "clean-webpack-plugin": "^0.1.9",
     "concurrently": "^2.1.0",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
@@ -94,8 +95,7 @@
   },
   "scripts": {
     "compile": "NODE_ENV=production babel-node ./node_modules/.bin/webpack --optimize-minimize --progress --config ./webpack/prod.config",
-    "clean:dist": "rm -rf static/dist",
-    "deploy": "npm run clean:dist && npm run compile && npm run prod",
+    "deploy": "npm run compile && npm run prod",
     "prod": "DEBUG=app:* NODE_PATH=src NODE_ENV=production babel-node src/server/index.js",
     "start": "concurrently --kill-others --raw \"npm run start:client:server\" \"npm run start:server\"",
     "start:server": "DEBUG=app:* NODE_PATH=src babel-node -- src/server/index.js",
