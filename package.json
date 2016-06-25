@@ -94,7 +94,7 @@
     "webpack": "^1.13.1"
   },
   "scripts": {
-    "compile": "NODE_ENV=production babel-node ./node_modules/.bin/webpack --optimize-minimize --progress --config ./webpack/prod.config",
+    "compile": "DEBUG=app:* NODE_ENV=production babel-node ./node_modules/.bin/webpack --optimize-minimize --progress --config ./webpack/prod.config",
     "deploy": "npm run compile && npm run prod",
     "prod": "DEBUG=app:* NODE_PATH=src NODE_ENV=production babel-node src/server/index.js",
     "start": "concurrently --kill-others --raw \"npm run start:client:server\" \"npm run start:server\"",
