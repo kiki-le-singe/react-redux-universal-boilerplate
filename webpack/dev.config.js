@@ -35,7 +35,7 @@ const {
 debug('Create configuration.')
 const config = {
   context: paths('base'),
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   entry: {
     app: [
       `webpack-hot-middleware/client?reload=true&path=http://${SERVER_HOST}:${WEBPACK_DEV_SERVER_PORT}/__webpack_hmr`,

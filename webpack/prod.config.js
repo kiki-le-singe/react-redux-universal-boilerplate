@@ -30,7 +30,7 @@ const {
 debug('Create configuration.')
 const config = {
   context: paths('base'),
-  devtool: 'source-ma',
+  devtool: 'source-map',
   entry: {
     app: paths('entryApp'),
     vendors: VENDOR_DEPENDENCIES
