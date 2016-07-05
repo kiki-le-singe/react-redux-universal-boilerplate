@@ -115,7 +115,7 @@ const config = {
     require('postcss-cssnext')()
   ]),
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[hash].js'),
