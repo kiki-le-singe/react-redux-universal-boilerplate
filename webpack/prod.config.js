@@ -99,7 +99,6 @@ const config = {
       __PROD__,
       __DEBUG__
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[hash].js'),
 
     // optimizations
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -127,6 +126,7 @@ const config = {
         comments: false
       }
     }),
+    new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[hash].js'),
 
     webpackIsomorphicToolsPlugin
   ]
