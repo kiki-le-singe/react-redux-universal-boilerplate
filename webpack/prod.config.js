@@ -45,6 +45,13 @@ const config = {
     extensions: ['', '.js', '.jsx']
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js[x]?$/,
+        loader: 'eslint',
+        include: [srcDir]
+      }
+    ],
     loaders: [
       {
         test: /\.js[x]?$/,
