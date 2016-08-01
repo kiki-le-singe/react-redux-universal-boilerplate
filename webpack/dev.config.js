@@ -63,7 +63,12 @@ const config = {
       {
         test: /\.js[x]?$/,
         loader: 'eslint',
-        include: [srcDir]
+        include: [srcDir],
+        query: {
+          rules: {
+            'no-unused-vars': 'warn'
+          }
+        }
       }
     ],
     loaders: [
