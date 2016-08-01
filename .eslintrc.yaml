@@ -3,12 +3,7 @@ env:
   browser: true
   node: true
   es6: true
-parserOptions:
-  sourceType: module
-  ecmaVersion: 7
-  ecmaFeatures:
-    jsx: true
-    experimentalObjectRestSpread: true
+parser: babel-eslint
 plugins:
   - react
   - jsx-a11y
