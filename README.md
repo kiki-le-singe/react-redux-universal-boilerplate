@@ -142,5 +142,7 @@ global.__DEBUG__ = projectConfig.__DEBUG__
  * [Babel Handbook](https://github.com/thejameskyle/babel-handbook/blob/master/translations/en/README.md)
  * [css-modules](https://github.com/css-modules/css-modules)
  * [css-loader's local-scope](https://github.com/webpack/css-loader#local-scope)
- * [Concurrently](https://github.com/kimmobrunfeldt/concurrently)
+ * Run multiple commands in parallel:
+  * [Concurrently](https://github.com/kimmobrunfeldt/concurrently)
+  * [npm-run-all](https://github.com/mysticatea/npm-run-all)
  * [html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
