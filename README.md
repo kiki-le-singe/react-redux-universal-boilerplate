@@ -103,9 +103,6 @@ Are there any other solutions ? Fortunately yes!
 </div>
 ```
 
-> Autoprefixed CSS, so you don’t need -webkit or other prefixes.
-> CSS are  http://cssnext.io/features/#automatic-vendor-prefixes
-
 
 ## Globals
 
