@@ -15,10 +15,16 @@ $ npm install
 ### Development
 
 ```shell
-$ npm start
+$ npm run dev
 ```
 
 Serves your app at `localhost:3000`. HMR will be enabled in development. A proxy is used for when you  request http://localhost:3000/, it will fetch http://localhost:3001/ and return.
+
+```shell
+$ npm start
+```
+
+Runs `npm run dev` script.
 
 ```shell
 $ npm run start:server
@@ -31,6 +37,15 @@ $ npm run start:client:server
 ```
 
 Starts the `webpack dev server` to serve your `webpack bundle` at `localhost:3001` and enable HMR in development.
+
+```shell
+$ npm run dev:debug
+```
+
+Same as `npm run dev` except that the debug mode is enabled. So [`redux-devtools`](https://github.com/gaearon/redux-devtools) will appear on the ui and you will can see [`webpack-isomorphic-tools's`](https://github.com/halt-hammerzeit/webpack-isomorphic-tools) debugging messages in the console.
+
+> Are there any other alternatives? Sure!
+> You can also use a chrome extension [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension). And there is also a small logger middleware `(~/src/common/redux/middleware/logger)` to log all actions and states after they are dispatched.
 
 
 ### Production
