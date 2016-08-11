@@ -94,11 +94,70 @@
     "webpack": "^1.13.1"
   },
   "scripts": {
-    "compile": "DEBUG=app:* NODE_ENV=production babel-node ./node_modules/.bin/webpack --progress --config ./webpack/prod.config",
-    "deploy": "npm run compile && npm run prod",
-    "prod": "DEBUG=app:* NODE_PATH=src NODE_ENV=production babel-node src/server/index.js",
-    "start": "npm-run-all --parallel start:client:server start:server",
-    "start:server": "DEBUG=app:* NODE_PATH=src babel-node -- src/server/index.js",
-    "start:client:server": "DEBUG=app:* babel-node webpack/dev.server.js"
+    "compile": "better-npm-run compile",
+    "deploy": "better-npm-run deploy",
+    "prod": "better-npm-run prod",
+    "dev": "better-npm-run dev",
+    "dev:debug": "better-npm-run dev:debug",
+    "start": "better-npm-run start",
+    "start:server": "better-npm-run start:server",
+    "start:client:server": "better-npm-run start:client:server"
+  },
+  "betterScripts": {
+    "start": {
+      "command": "npm run dev",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "start:server": {
+      "command": "babel-node -- src/server/index",
+      "env": {
+        "NODE_ENV": "development",
+        "NODE_PATH": "src",
+        "DEBUG": "app:*"
+      }
+    },
+    "start:client:server": {
+      "command": "babel-node -- webpack/dev.server",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "dev": {
+      "command": "npm-run-all --parallel start:client:server start:server",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "dev:debug": {
+      "command": "npm-run-all --parallel \"start:client:server -- --debug\" \"start:server -- --debug\"",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "prod": {
+      "command": "babel-node src/server/index",
+      "env": {
+        "NODE_ENV": "production",
+        "NODE_PATH": "src",
+        "DEBUG": "app:*"
+      }
+    },
+    "deploy": {
+      "command": "npm run compile && npm run prod"
+    },
+    "compile": {
+      "command": "babel-node node_modules/.bin/webpack --progress --config webpack/prod.config",
+      "env": {
+        "NODE_ENV": "production",
+        "NODE_PATH": "src",
+        "DEBUG": "app:*"
+      }
+    }
   }
 }
