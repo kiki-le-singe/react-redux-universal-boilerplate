@@ -1,6 +1,6 @@
 {
   "name": "react-redux-universal-boilerplate",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "author": {
     "name": "Kiki le singe"
   },
@@ -65,6 +65,7 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.5.0",
     "babel-runtime": "^6.11.6",
+    "better-npm-run": "0.0.10",
     "clean-webpack-plugin": "^0.1.10",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
@@ -93,11 +94,70 @@
     "webpack": "^1.13.1"
   },
   "scripts": {
-    "compile": "DEBUG=app:* NODE_ENV=production babel-node ./node_modules/.bin/webpack --progress --config ./webpack/prod.config",
-    "deploy": "npm run compile && npm run prod",
-    "prod": "DEBUG=app:* NODE_PATH=src NODE_ENV=production babel-node src/server/index.js",
-    "start": "npm-run-all --parallel start:client:server start:server",
-    "start:server": "DEBUG=app:* NODE_PATH=src babel-node -- src/server/index.js",
-    "start:client:server": "DEBUG=app:* babel-node webpack/dev.server.js"
+    "compile": "better-npm-run compile",
+    "deploy": "better-npm-run deploy",
+    "prod": "better-npm-run prod",
+    "dev": "better-npm-run dev",
+    "dev:debug": "better-npm-run dev:debug",
+    "start": "better-npm-run start",
+    "start:server": "better-npm-run start:server",
+    "start:client:server": "better-npm-run start:client:server"
+  },
+  "betterScripts": {
+    "start": {
+      "command": "npm run dev",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "start:server": {
+      "command": "babel-node -- src/server/index",
+      "env": {
+        "NODE_ENV": "development",
+        "NODE_PATH": "src",
+        "DEBUG": "app:*"
+      }
+    },
+    "start:client:server": {
+      "command": "babel-node -- webpack/dev.server",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "dev": {
+      "command": "npm-run-all --parallel start:client:server start:server",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "dev:debug": {
+      "command": "npm-run-all --parallel \"start:client:server -- --debug\" \"start:server -- --debug\"",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "prod": {
+      "command": "babel-node src/server/index",
+      "env": {
+        "NODE_ENV": "production",
+        "NODE_PATH": "src",
+        "DEBUG": "app:*"
+      }
+    },
+    "deploy": {
+      "command": "npm run compile && npm run prod"
+    },
+    "compile": {
+      "command": "babel-node node_modules/.bin/webpack --progress --config webpack/prod.config",
+      "env": {
+        "NODE_ENV": "production",
+        "NODE_PATH": "src",
+        "DEBUG": "app:*"
+      }
+    }
   }
 }
