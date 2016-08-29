@@ -4,8 +4,8 @@ import serve from 'koa-static'
 import proxy from 'koa-proxy'
 import convert from 'koa-convert'
 
-import projectConfig from '../../config'
 import { handleRender } from 'server/utils'
+import projectConfig from '../../config'
 
 const debug = _debug('app:server:dev')
 const app = new Koa()
