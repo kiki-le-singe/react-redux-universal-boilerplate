@@ -26,5 +26,5 @@ app.use(handleRender)
 ***************** */
 
 app.listen(SERVER_PORT, () => {
-  debug(`Koa server listening on port ${SERVER_PORT} in ${app.env} mode`)
+  debug(`Koa server listening at http://${SERVER_HOST}:${SERVER_PORT} in ${app.env} mode`)
 })

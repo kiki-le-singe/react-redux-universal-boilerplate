@@ -7,6 +7,7 @@ import projectConfig from '../../config'
 
 const debug = _debug('app:server:prod')
 const app = new Koa()
+const { SERVER_HOST, SERVER_PORT } = projectConfig
 
 app.use(serve('static'))
 
@@ -17,6 +18,6 @@ app.use(handleRender)
  START THE SERVER
 ***************** */
 
-app.listen(projectConfig.SERVER_PORT, () => {
-  debug(`Koa server listening on port ${projectConfig.SERVER_PORT} in ${app.env} mode`)
+app.listen(SERVER_PORT, () => {
+  debug(`Koa server listening at http://${SERVER_HOST}:${SERVER_PORT} in ${app.env} mode`)
 })
