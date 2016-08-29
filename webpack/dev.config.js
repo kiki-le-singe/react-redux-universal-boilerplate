@@ -46,7 +46,7 @@ const config = {
   output: {
     path: paths('build'),
     filename: '[name]-[hash].js',
-    publicPath: `http://localhost:${WEBPACK_DEV_SERVER_PORT}/build/`
+    publicPath: `http://${SERVER_HOST}:${WEBPACK_DEV_SERVER_PORT}/build/`
   },
   resolve: {
     alias: {},

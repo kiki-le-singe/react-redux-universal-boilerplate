@@ -12,7 +12,7 @@ export default {
     },
     styles: {
       extensions: ['css'],
-      filter (module, regex, options, log) {
+      filter(module, regex, options, log) {
         if (options.development) {
           return WebpackIsomorphicToolsPlugin.style_loader_filter(module, regex, options, log)
         }
@@ -20,7 +20,7 @@ export default {
         // so the module.name will be equal to the asset path
         return regex.test(module.name)
       },
-      path (module, options, log) {
+      path(module, options, log) {
         if (options.development) {
           return WebpackIsomorphicToolsPlugin.style_loader_path_extractor(module, options, log);
         }
@@ -28,7 +28,7 @@ export default {
         // so `module.name`s will be equal to correct asset paths
         return module.name
       },
-      parser (module, options, log) {
+      parser(module, options, log) {
         if (options.development) {
           return WebpackIsomorphicToolsPlugin.css_modules_loader_parser(module, options, log);
         }
