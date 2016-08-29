@@ -18,7 +18,7 @@ $ npm install
 $ npm run dev
 ```
 
-Serves your app at `localhost:3000`. HMR will be enabled in development. A proxy is used for when you  request http://localhost:3000/, it will fetch http://localhost:3001/ and return.
+Serves your app at `localip:3000`. HMR will be enabled in development. A proxy is used for when you  request http://localip:3000/, it will fetch http://localip:3001/ and return.
 
 ```shell
 $ npm start
@@ -30,13 +30,13 @@ Runs `npm run dev` script.
 $ npm run start:server
 ```
 
-Starts the `dev` server to serve your app at `localhost:3000`.
+Starts the `dev` server to serve your app at `localip:3000`.
 
 ```shell
 $ npm run start:client:server
 ```
 
-Starts the `webpack dev server` to serve your `webpack bundle` at `localhost:3001` and enable HMR in development.
+Starts the `webpack dev server` to serve your `webpack bundle` at `localip:3001` and enable HMR in development.
 
 ```shell
 $ npm run dev:debug
@@ -66,7 +66,7 @@ Cleans the `~/static/dist` folder previously created, then compiles your applica
 $ npm run prod
 ```
 
-Starts the `prod` server to serve your app at `localhost:3000`.
+Starts the `prod` server to serve your app at `localip:3000`.
 
 
 ## Features
