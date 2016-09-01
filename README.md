@@ -51,7 +51,7 @@ Same as `npm run dev` except that the debug mode is enabled. So [`redux-devtools
 ### Production
 
 ```shell
-$ npm run compile
+$ npm run build
 ```
 
 It does some optimizations and Compiles the application, for the production, to disk (`~/static/dist`).

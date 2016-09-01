@@ -97,7 +97,7 @@
     "url-loader": "^0.5.7"
   },
   "scripts": {
-    "compile": "better-npm-run compile",
+    "build": "better-npm-run build",
     "deploy": "better-npm-run deploy",
     "prod": "better-npm-run prod",
     "dev": "better-npm-run dev",
@@ -152,9 +152,9 @@
       }
     },
     "deploy": {
-      "command": "npm run compile && npm run prod"
+      "command": "npm run build && npm run prod"
     },
-    "compile": {
+    "build": {
       "command": "babel-node node_modules/.bin/webpack --progress --config webpack/prod.config",
       "env": {
         "NODE_ENV": "production",
