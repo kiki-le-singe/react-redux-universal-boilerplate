@@ -38,6 +38,7 @@ const config = {
   output: {
     path: paths('dist'),
     filename: '[name]-[hash].js',
+    chunkFilename: '[chunkhash].js',
     publicPath: '/dist/'
   },
   resolve: {
@@ -133,7 +134,9 @@ const config = {
         comments: false
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[hash].js'),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest']
+    }),
 
     webpackIsomorphicToolsPlugin
   ]
