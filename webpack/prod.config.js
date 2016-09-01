@@ -37,7 +37,7 @@ const config = {
   },
   output: {
     path: paths('dist'),
-    filename: '[name]-[hash].js',
+    filename: '[name]-[chunkhash].js',
     chunkFilename: '[chunkhash].js',
     publicPath: '/dist/'
   },
