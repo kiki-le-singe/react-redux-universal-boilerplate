@@ -113,7 +113,8 @@
     "dev:debug": "better-npm-run dev:debug",
     "start": "better-npm-run start",
     "start:server": "better-npm-run start:server",
-    "start:client:server": "better-npm-run start:client:server"
+    "start:client:server": "better-npm-run start:client:server",
+    "test": "better-npm-run test"
   },
   "betterScripts": {
     "start": {
@@ -168,6 +169,13 @@
       "env": {
         "NODE_ENV": "production",
         "NODE_PATH": "src",
+        "DEBUG": "app:*"
+      }
+    },
+    "test": {
+      "command": "babel-node node_modules/.bin/karma start",
+      "env": {
+        "NODE_ENV": "test",
         "DEBUG": "app:*"
       }
     }
