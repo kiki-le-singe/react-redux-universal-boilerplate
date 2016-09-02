@@ -5,5 +5,16 @@
     "production": {
       "presets": ["react-optimize"]
     }
+  },
+  "env": {
+    "test": {
+      "plugins": [
+        [
+          "istanbul", {
+            "exclude": ["**/*.spec.js"]
+          }
+        ]
+      ]
+    }
   }
 }
