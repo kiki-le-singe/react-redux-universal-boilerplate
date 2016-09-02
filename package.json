@@ -114,7 +114,8 @@
     "start": "better-npm-run start",
     "start:server": "better-npm-run start:server",
     "start:client:server": "better-npm-run start:client:server",
-    "test": "better-npm-run test"
+    "test": "better-npm-run test",
+    "test:dev": "npm run test -- --watch"
   },
   "betterScripts": {
     "start": {

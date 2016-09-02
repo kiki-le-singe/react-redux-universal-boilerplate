@@ -15,7 +15,7 @@ const karmaConfig = {
     // 'Chrome',
     'PhantomJS'
   ],
-  singleRun: true,
+  singleRun: !argv.watch,
   coverageReporter: {
     dir: 'coverage/',
     type: 'html'
