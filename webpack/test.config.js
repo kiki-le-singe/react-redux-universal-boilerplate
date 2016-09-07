@@ -23,7 +23,7 @@ const {
 
 debug('Create configuration.')
 const config = {
-  devtool: 'cheap-module-source-map',
+  devtool: 'inline-source-map',
   resolve: {
     root: [srcDir],
     extensions: ['', '.js', '.jsx']
