@@ -26,9 +26,15 @@ const config = {
   devtool: 'inline-source-map',
   resolve: {
     root: [srcDir],
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.json'],
+    alias: {
+      sinon: 'sinon/pkg/sinon'
+    }
   },
   module: {
+    noParse: [
+      /\/sinon\.js/
+    ],
     loaders: [
       {
         test: /\.js$/,
@@ -84,7 +90,12 @@ const config = {
       __PROD__,
       __DEBUG__
     })
-  ]
+  ],
+  externals: {
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true
+  }
 }
 
 export default config
