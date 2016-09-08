@@ -37,7 +37,7 @@ const config = {
     ],
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.js[x]?$/,
         loader: 'babel',
         include: [srcDir, testDir],
         query: {
