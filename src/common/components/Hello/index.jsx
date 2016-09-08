@@ -11,7 +11,7 @@ const defaultProps = {
 }
 
 function Hello(props) {
-  return <div>Hello {props.name}</div>
+  return <div className="hello">Hello {props.name}</div>
 }
 
 Hello.propTypes = propTypes
