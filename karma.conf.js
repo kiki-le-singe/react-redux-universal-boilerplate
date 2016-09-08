@@ -8,9 +8,9 @@ debug('Create configuration.')
 const karmaConfig = {
   frameworks: ['mocha'],
   reporters: ['spec', 'coverage'],
-  files: ['__tests__/**/*.spec.js'],
+  files: ['__tests__/index.test.js'],
   preprocessors: {
-    '__tests__/**/*.spec.js': ['webpack', 'sourcemap']
+    '__tests__/index.test.js': ['webpack', 'sourcemap']
   },
   browsers: [
     // 'Chrome',
