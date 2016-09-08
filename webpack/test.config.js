@@ -39,7 +39,7 @@ const config = {
       {
         test: /\.js$/,
         loader: 'babel',
-        include: [testDir],
+        include: [srcDir, testDir],
         query: {
           cacheDirectory: true
         }
