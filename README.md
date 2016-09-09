@@ -69,6 +69,21 @@ $ npm run prod
 Starts the `prod` server to serve your app at `localip:3000`.
 
 
+### Test
+
+```shell
+$ npm run test
+```
+
+Runs unit tests with Karma. It will generate a coverage report to `~/coverage`.
+
+```shell
+$ npm run test:dev
+```
+
+Same as `npm run test` except it watches for changes to re-run tests.
+
+
 ## Features
 * [react](https://github.com/facebook/react)
 * [redux](https://github.com/reactjs/redux)
@@ -82,6 +97,12 @@ Starts the `prod` server to serve your app at `localip:3000`.
 * [Universal (Isomorphic)](http://isomorphic.net)
 * [postcss-cssnext](https://github.com/MoOx/postcss-cssnext)
 * [css-modules](https://github.com/css-modules/css-modules)
+* [karma](http://karma-runner.github.io/)
+* [Mocha](https://mochajs.org/)
+* [Mocha](https://mochajs.org/)
+* [Chai](http://chaijs.com/)
+* [Sinon.JS](http://sinonjs.org/)
+* [Enzyme](https://github.com/airbnb/enzyme)
 
 
 ## Styles
@@ -146,6 +167,10 @@ global.__PROD__ = projectConfig.__PROD__
 global.__DEBUG__ = projectConfig.__DEBUG__
 ```
 
+## Unit Tests
+
+Tests are in `~/__tests__`. [Mocha](https://mochajs.org/) will be used for structuring tests, [karma](http://karma-runner.github.io/) as the test runner, [Chai](http://chaijs.com/) for assertions, [Sinon.JS](http://sinonjs.org/) for spies... And [Enzyme](https://github.com/airbnb/enzyme) to simplify testing react components.
+
 ## Sources
 
  * [React Redux Universal Hot Example](https://github.com/erikras/react-redux-universal-hot-example)
@@ -155,6 +180,9 @@ global.__DEBUG__ = projectConfig.__DEBUG__
  * [React Simple Universal](https://github.com/guidsen/react-simple-universal)
  * [React Isomorphic Starterkit](https://github.com/RickWong/react-isomorphic-starterkit)
  * [React Redux Starter Kit](https://github.com/davezuko/react-redux-starter-kit)
+ * [react-boilerplate - Boilerplate for "SurviveJS - React"](https://github.com/survivejs/react-boilerplate)
+ * [react-testing-starter-kit](https://github.com/SpencerCDixon/react-testing-starter-kit)
+ * [karma-webpack](https://github.com/webpack/karma-webpack)
 
 ## Learn more
 
