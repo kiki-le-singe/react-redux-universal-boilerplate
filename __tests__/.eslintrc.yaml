@@ -1,0 +1,7 @@
+extends: ../.eslintrc.yaml
+env:
+  mocha: true
+globals:
+  expect: false
+  should: false
+  sinon: false

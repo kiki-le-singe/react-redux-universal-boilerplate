@@ -2,9 +2,9 @@ import React from 'react'
 import { Route, IndexRoute, Redirect } from 'react-router'
 
 import AppLayout from 'common/layouts/AppLayout'
-import Home from 'common/components/views/Home'
-import About from 'common/components/views/About'
-import Hello from 'common/components/views/Hello'
+import Home from 'common/views/Home'
+import About from 'common/views/About'
+import Hello from 'common/views/Hello'
 
 export default (
   <Route path="/" component={AppLayout}>

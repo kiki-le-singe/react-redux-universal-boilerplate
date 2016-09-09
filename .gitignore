@@ -7,6 +7,7 @@ dist
 .sass-cache
 build/*
 reports
+coverage
 
 # webpack-isomorphic-tools
 webpack-assets.json
