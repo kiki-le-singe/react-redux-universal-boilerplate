@@ -12,6 +12,7 @@
   "homepage": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate",
   "bugs": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate/issues",
   "keywords": [
+    "starter",
     "boilerplate",
     "react",
     "react-router",
@@ -29,7 +30,12 @@
     "postcss",
     "css-modules",
     "isomorphic",
-    "universal"
+    "universal",
+    "karma",
+    "mocha",
+    "sinon",
+    "chai",
+    "enzyme"
   ],
   "description": "Get started with a Universal boilerplate containing tools like React, Redux, Koa...",
   "engines": {
