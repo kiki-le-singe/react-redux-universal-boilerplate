@@ -32,3 +32,4 @@ rules:
   no-underscore-dangle: off
   global-require: 0
   react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }]
+  react/require-extension: "off"
