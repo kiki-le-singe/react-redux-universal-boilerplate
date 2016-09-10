@@ -41,7 +41,7 @@ const handleRender = ctx => {
       const component = (
         <Provider store={store}>
           <div className="app">
-            <RouterContext { ...renderProps } />
+            <RouterContext {...renderProps} />
           </div>
         </Provider>
       )
