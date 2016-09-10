@@ -2,7 +2,7 @@ import Koa from 'koa'
 import _debug from 'debug'
 import serve from 'koa-static'
 
-import { handleRender } from 'server/utils'
+import handleRender from 'server/utils'
 import projectConfig from '../../config'
 
 const debug = _debug('app:server:prod')

@@ -56,4 +56,4 @@ const handleRender = ctx => {
   })
 }
 
-export { handleRender }
+export default handleRender
