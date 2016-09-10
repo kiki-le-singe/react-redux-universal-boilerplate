@@ -84,6 +84,15 @@ $ npm run test:dev
 Same as `npm run test` except it watches for changes to re-run tests.
 
 
+### Linter
+
+```shell
+$ npm run lint
+```
+
+Lint all files in `~/src` and `~/__tests__`.
+
+
 ## Features
 * [react](https://github.com/facebook/react)
 * [redux](https://github.com/reactjs/redux)
