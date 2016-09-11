@@ -1,3 +1,13 @@
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.4.1...v1.5.0) (2016-09-11)
+
+
+### Features
+
+* **react.perf:** implement whyDidYouUpdate tool ([57a87e1](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/commit/57a87e1))
+
+
+
 <a name="1.4.1"></a>
 # [1.4.1](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.4.0...v1.4.1) (2016-09-11)
 
