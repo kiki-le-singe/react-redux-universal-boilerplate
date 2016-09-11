@@ -112,6 +112,7 @@ Lint all files in `~/src` and `~/__tests__`.
 * [Chai](http://chaijs.com/)
 * [Sinon.JS](http://sinonjs.org/)
 * [Enzyme](https://github.com/airbnb/enzyme)
+* [why-did-you-update](https://github.com/garbles/why-did-you-update)
 
 
 ## Styles

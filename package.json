@@ -67,6 +67,7 @@
     "serve-static": "^1.11.1",
     "webpack": "^1.13.2",
     "webpack-isomorphic-tools": "^2.5.8",
+    "why-did-you-update": "0.0.8",
     "yargs": "^5.0.0"
   },
   "devDependencies": {

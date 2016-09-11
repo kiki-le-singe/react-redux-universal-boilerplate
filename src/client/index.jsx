@@ -12,4 +12,10 @@ const store = configureStore(initialState)
 const history = syncHistoryWithStore(browserHistory, store)
 const root = (<Root history={history} store={store} />)
 
+if (!__PROD__) {
+  const { whyDidYouUpdate } = require('why-did-you-update')
+
+  whyDidYouUpdate(React)
+}
+
 ReactDOM.render(root, document.getElementById('root'))
