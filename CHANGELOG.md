@@ -1,3 +1,13 @@
+<a name="1.4.1"></a>
+# [1.4.1](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.4.0...v1.4.1) (2016-09-11)
+
+
+### Bug Fixes
+
+* **webpack.dev:** set devtool to `source-map` ([25d9864](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/commit/25d9864ec794b5002272c0b3eb702923eb877aeb))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.0.10...v1.3.0) (2016-09-10)
 
