@@ -197,6 +197,7 @@ Tests are in `~/__tests__`. [Mocha](https://mochajs.org/) will be used for struc
 
  * [Babel Handbook](https://github.com/thejameskyle/babel-handbook/blob/master/translations/en/README.md)
  * [css-modules](https://github.com/css-modules/css-modules)
+  * [css-modules' webpack-demo](https://github.com/css-modules/webpack-demo)
  * [css-loader's local-scope](https://github.com/webpack/css-loader#local-scope)
  * Run multiple commands in parallel:
   * [Concurrently](https://github.com/kimmobrunfeldt/concurrently)
