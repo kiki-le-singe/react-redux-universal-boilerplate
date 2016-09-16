@@ -1,7 +1,7 @@
 /**
  * Logs all actions and states after they are dispatched.
  */
-const logger = store => next => action => {
+const logger = store => next => (action) => {
   // Notes:
   // next = store.dispatch;
   // next(action) = dispatch(action);

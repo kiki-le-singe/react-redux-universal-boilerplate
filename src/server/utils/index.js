@@ -15,7 +15,7 @@ const renderFullPage = (component, store) => {
   return `<!doctype html>\n${html}`
 }
 
-const handleRender = ctx => {
+const handleRender = (ctx) => {
   // clear require() cache if in development mode
   // (makes asset hot reloading work)
   if (__DEV__) {
