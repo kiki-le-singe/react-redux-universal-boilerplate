@@ -113,6 +113,7 @@ Lint all files in `~/src` and `~/__tests__`.
 * [Sinon.JS](http://sinonjs.org/)
 * [Enzyme](https://github.com/airbnb/enzyme)
 * [why-did-you-update](https://github.com/garbles/why-did-you-update)
+* [babel-preset-latest](https://babeljs.io/docs/plugins/preset-latest/)
 
 
 ## Styles
