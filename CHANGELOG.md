@@ -1,3 +1,14 @@
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.6.0...v1.7.0) (2016-09-25)
+
+
+### Features
+
+* **babel:** implement babel latest preset ([78f2b0d](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/commit/78f2b0d))
+* **babel:** implement transform-react-jsx-source plugin ([4a818d5](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/commit/4a818d5))
+
+
+
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.4.1...v1.6.0) (2016-09-16)
 
