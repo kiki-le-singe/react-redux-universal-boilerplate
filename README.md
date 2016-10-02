@@ -108,7 +108,6 @@ Lint all files in `~/src` and `~/__tests__`.
 * [css-modules](https://github.com/css-modules/css-modules)
 * [karma](http://karma-runner.github.io/)
 * [Mocha](https://mochajs.org/)
-* [Mocha](https://mochajs.org/)
 * [Chai](http://chaijs.com/)
 * [Sinon.JS](http://sinonjs.org/)
 * [Enzyme](https://github.com/airbnb/enzyme)
