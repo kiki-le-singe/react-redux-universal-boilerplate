@@ -35,7 +35,8 @@
     "mocha",
     "sinon",
     "chai",
-    "enzyme"
+    "enzyme",
+    "yarn"
   ],
   "description": "Get started with a Universal boilerplate containing tools like React, Redux, Koa...",
   "engines": {
