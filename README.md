@@ -7,7 +7,7 @@ An Universal ReactJS/Redux Boilerplate.
 ```shell
 $ git clone git@github.com:kiki-le-singe/react-redux-universal-boilerplate-boilerplate.git
 $ cd react-redux-universal-boilerplate-boilerplate
-$ npm install
+$ npm install or yarn
 ```
 
 ## Scripts
@@ -113,6 +113,7 @@ Lint all files in `~/src` and `~/__tests__`.
 * [Enzyme](https://github.com/airbnb/enzyme)
 * [why-did-you-update](https://github.com/garbles/why-did-you-update)
 * [babel-preset-latest](https://babeljs.io/docs/plugins/preset-latest/)
+* [yarn](https://yarnpkg.com/)
 
 
 ## Styles
@@ -204,3 +205,7 @@ Tests are in `~/__tests__`. [Mocha](https://mochajs.org/) will be used for struc
   * [Concurrently](https://github.com/kimmobrunfeldt/concurrently)
   * [npm-run-all](https://github.com/mysticatea/npm-run-all)
  * [html5-boilerplate](https://github.com/h5bp/html5-boilerplate)
+ * [yarn](https://yarnpkg.com/)
+  * [Getting Started](https://yarnpkg.com/en/docs/getting-started)
+  * [Documentation](https://yarnpkg.com/en/docs/)
+  * [Migrating from npm](https://yarnpkg.com/en/docs/migrating-from-npm)
