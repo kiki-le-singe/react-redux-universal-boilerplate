@@ -1,3 +1,14 @@
+<a name="1.8.0"></a>
+# [1.8.0](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.7.0...v1.8.0) (2016-10-16)
+
+
+### Features
+
+* **yarn:** add yarn file ([b7941dd](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/commit/b7941dd))
+* **README:** update documentation ([a01d845](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/commit/a01d845))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.6.0...v1.7.0) (2016-09-25)
 
