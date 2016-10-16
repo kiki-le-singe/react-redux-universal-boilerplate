@@ -17,7 +17,6 @@ global.__DEBUG__ = projectConfig.__DEBUG__
 // https://github.com/halt-hammerzeit/webpack-isomorphic-tools#mainjs
 global.webpackIsomorphicTools =
   new WebpackIsomorphicTools(isomorphicToolsConfig)
-    .development(__DEV__)
     .server(projectBasePath, () => {
       if (__DEV__) {
         require('./server.dev')
