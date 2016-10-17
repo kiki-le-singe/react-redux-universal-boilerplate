@@ -28,7 +28,7 @@ globals:
   webpackIsomorphicTools: false
 rules:
   semi: [2, "never"]
-  comma-dangle: [1, "never"]
+  comma-dangle: 0
   no-underscore-dangle: off
   global-require: 0
   react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }]
