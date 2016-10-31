@@ -41,7 +41,7 @@ export default class Html extends Component {
     const { component, store } = this.props
 
     return (
-      <html>
+      <html lang="en">
         <head>
           <meta charSet="utf-8" />
 
