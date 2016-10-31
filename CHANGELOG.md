@@ -1,3 +1,12 @@
+<a name="1.8.1"></a>
+# [1.8.1](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.8.0...v1.8.1) (2016-10-31)
+
+
+### Bug Fixes
+
+* **package:** add missing `ext` option ([73a8395](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/commit/73a83954902a0d0bff73d7306f27166e53f7ddff))
+
+
 <a name="1.8.0"></a>
 # [1.8.0](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.7.0...v1.8.0) (2016-10-16)
 
