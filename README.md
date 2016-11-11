@@ -123,7 +123,7 @@ You can use `.css` file extensions using the latest CSS syntax with [`postcss-cs
 > CSS are automatically autoprefixed. You don't need to add prefixes like `-webkit`.
 > See [automatic vendor prefixes](http://cssnext.io/features/#automatic-vendor-prefixes) from `postcss-cssnext features`
 
-See the `~/src/common/styles/global` directory to implement global styles (site's theme for example) and see an example of use case css module `~/src/common/components/views/About`. There is also a `~/src/common/styles/local` directory for common local styles (this could allow to use [css modules' composition](https://github.com/css-modules/css-modules#composition) between components).
+See the `~/src/common/styles/global` directory to implement global styles (site's theme for example) and see an example of use case css module `~/src/common/views/About`. There is also a `~/src/common/styles/local` directory for common local styles (this could allow to use [css modules' composition](https://github.com/css-modules/css-modules#composition) between components).
 
 Are there any other solutions ? Fortunately yes!
 
