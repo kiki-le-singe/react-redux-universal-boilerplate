@@ -1,5 +1,5 @@
 {
-  "name": "react-redux-universal-boilerplate-next",
+  "name": "react-redux-universal-boilerplate",
   "version": "2.0.0",
   "author": {
     "name": "Kiki le singe"
@@ -7,10 +7,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate-next"
+    "url": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate"
   },
-  "homepage": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate-next",
-  "bugs": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate-next/issues",
+  "homepage": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate",
+  "bugs": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate/issues",
   "keywords": [
     "starter",
     "boilerplate",
