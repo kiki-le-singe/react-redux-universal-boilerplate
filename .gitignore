@@ -9,6 +9,14 @@ build/*
 reports
 coverage
 
+# ready to deploy
+readyToDeploy/*
+!readyToDeploy/static
+!readyToDeploy/package.json
+!readyToDeploy/yarn.lock
+!readyToDeploy/README.md
+readyToDeploy/static/dist/
+
 # webpack-isomorphic-tools
 webpack-assets.json
 webpack-stats.json

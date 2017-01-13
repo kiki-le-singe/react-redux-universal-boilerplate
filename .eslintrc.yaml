@@ -24,7 +24,6 @@ globals:
   __SERVER__: false
   __DEV__: false
   __PROD__: false
-  __DEBUG__: false
   webpackIsomorphicTools: false
 rules:
   semi: [2, "never"]

@@ -16,6 +16,6 @@ const serverOptions = { publicPath: webpackConfig.output.publicPath }
 app.use(webpackDevMiddleware(compiler, serverOptions))
 app.use(webpackHotMiddleware(compiler))
 
-app.listen(projectConfig.WEBPACK_DEV_SERVER_PORT, () => {
+app.listen(3001, () => {
   debug(`Webpack dev server listening on port ${projectConfig.WEBPACK_DEV_SERVER_PORT}`)
 })

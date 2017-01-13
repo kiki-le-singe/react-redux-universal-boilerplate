@@ -1,0 +1,7 @@
+.view__hello {
+  color: green;
+
+  @nest & .text {
+    color: blue;
+  }
+}

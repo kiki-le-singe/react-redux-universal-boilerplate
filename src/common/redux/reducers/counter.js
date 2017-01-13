@@ -1,11 +1,13 @@
-import types from '../constants/CounterConstants'
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/CounterActions'
 
-const counter = (state = 0, action) => {
+const initialState = 0
+
+const counter = (state = initialState, action) => {
   switch (action.type) {
-    case types.INCREMENT_COUNTER:
+    case INCREMENT_COUNTER:
       return state + 1
 
-    case types.DECREMENT_COUNTER:
+    case DECREMENT_COUNTER:
       return state - 1
 
     default:

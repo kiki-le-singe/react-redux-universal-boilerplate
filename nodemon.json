@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "webpack/",
+    "src/server/index.js",
+    "src/server/koa.dev.js",
+    "src/server/utils/render.js",
+    "src/server/components/Html/index.jsx"
+  ]
+}
