@@ -1,13 +1,7 @@
 {
-  "presets": ["latest", "react", "stage-0"],
+  "presets": [["latest", { "modules": false }], "react", "stage-0"],
   "plugins": ["transform-runtime"],
   "env": {
-    "development": {
-      "plugins": ["transform-react-jsx-source"]
-    },
-    "production": {
-      "presets": ["react-optimize"]
-    },
     "test": {
       "plugins": [
         [
@@ -16,6 +10,12 @@
           }
         ]
       ]
+    },
+    "server": {
+      "plugins": ["system-import-transformer"]
+    },
+    "production": {
+      "presets": ["react-optimize"]
     }
   }
 }

@@ -1,21 +1,22 @@
 {
-  "name": "react-redux-universal-boilerplate",
-  "version": "1.8.1",
+  "name": "react-redux-universal-boilerplate-next",
+  "version": "2.0.0",
   "author": {
     "name": "Kiki le singe"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate.git"
+    "url": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate-next"
   },
-  "homepage": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate",
-  "bugs": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate/issues",
+  "homepage": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate-next",
+  "bugs": "https://github.com/kiki-le-singe/react-redux-universal-boilerplate-next/issues",
   "keywords": [
     "starter",
     "boilerplate",
     "react",
     "react-router",
+    "react-helmet",
     "redux",
     "es2015",
     "es2016",
@@ -25,78 +26,89 @@
     "hot",
     "reload",
     "hmr",
+    "hot-loader",
     "koa",
-    "cssnext",
     "postcss",
+    "cssnext",
+    "sass",
     "css-modules",
+    "ssr",
     "isomorphic",
     "universal",
     "karma",
     "mocha",
     "sinon",
     "chai",
-    "enzyme",
-    "yarn"
+    "enzyme"
   ],
   "description": "Get started with a Universal boilerplate containing tools like React, Redux, Koa...",
   "engines": {
-    "node": ">=5.0.0",
-    "npm": "^3.3.12"
+    "node": ">=6.0.0",
+    "npm": "^3.8.6"
   },
+  "main": "src/server/index.js",
   "dependencies": {
-    "classnames": "^2.2.5",
-    "clean-webpack-plugin": "^0.1.14",
-    "debug": "^2.3.2",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "autoprefixer": "^6.6.1",
+    "babel-core": "^6.21.0",
+    "babel-runtime": "^6.20.0",
+    "better-npm-run": "0.0.14",
+    "debug": "^2.6.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta.3",
+    "fs-extra": "^1.0.0",
+    "globby": "^6.1.0",
+    "inquirer": "^2.0.0",
     "ip": "^1.1.4",
     "koa": "^2.0.0",
+    "koa-compress": "next",
     "koa-convert": "^1.2.0",
-    "koa-proxy": "^0.6.0",
+    "koa-helmet": "^2.0.0",
+    "koa-html-minifier": "^1.0.1",
+    "koa-proxy": "^0.7.0",
     "koa-static": "^3.0.0",
+    "koa-static-cache": "^3.2.0",
     "koa-webpack-dev-middleware": "^1.3.0",
     "koa-webpack-hot-middleware": "^1.0.3",
     "normalize.css": "^5.0.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-redux": "^4.4.5",
-    "react-router": "^3.0.0",
+    "purifycss-webpack-plugin": "^2.0.3",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-helmet": "^3.3.0",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-redux": "^5.0.2",
+    "react-router": "^3.0.1",
     "react-router-redux": "^4.0.7",
-    "redux": "^3.5.1",
-    "redux-devtools": "^3.3.1",
-    "redux-devtools-dock-monitor": "^1.1.1",
-    "redux-devtools-log-monitor": "^1.1.1",
-    "serve-static": "^1.11.1",
-    "webpack": "^1.13.3",
-    "webpack-isomorphic-tools": "^2.6.4",
-    "why-did-you-update": "0.0.8",
-    "yargs": "^6.3.0"
+    "redux": "^3.6.0",
+    "serialize-javascript": "^1.3.0",
+    "source-map-support": "^0.4.8",
+    "webpack": "^2.2.0-rc.4",
+    "webpack-isomorphic-tools": "^2.6.6",
+    "webpack-md5-hash": "^0.0.5",
+    "why-did-you-update": "^0.0.8"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
-    "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.0",
-    "babel-loader": "^6.2.7",
-    "babel-plugin-istanbul": "^2.0.3",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-istanbul": "^3.1.2",
+    "babel-plugin-system-import-transformer": "^2.4.0",
     "babel-plugin-transform-react-jsx-source": "^6.9.0",
-    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.16.0",
-    "babel-runtime": "^6.18.0",
-    "better-npm-run": "0.0.13",
     "chai": "^3.5.0",
-    "copy-webpack-plugin": "^4.0.0",
-    "css-loader": "^0.25.0",
-    "enzyme": "^2.6.0",
-    "eslint": "^3.10.0",
-    "eslint-config-airbnb": "^13.0.0",
+    "clean-webpack-plugin": "^0.1.15",
+    "css-loader": "^0.26.1",
+    "enzyme": "^2.7.0",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb": "^14.0.0",
     "eslint-loader": "^1.6.1",
-    "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.6.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
     "file-loader": "^0.9.0",
+    "image-webpack-loader": "^3.1.0",
     "json-loader": "^0.5.4",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
@@ -104,46 +116,52 @@
     "karma-mocha": "^1.3.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-spec-reporter": "0.0.26",
-    "karma-webpack": "^1.8.0",
-    "mocha": "^3.1.2",
-    "npm-run-all": "^3.1.1",
-    "postcss-cssnext": "^2.7.0",
-    "postcss-import": "^8.2.0",
-    "postcss-loader": "^1.1.1",
-    "postcss-url": "^5.1.2",
-    "react-addons-test-utils": "^15.3.2",
-    "sinon": "^1.17.6",
+    "karma-spec-reporter": "^0.0.26",
+    "karma-webpack": "^2.0.1",
+    "mocha": "^3.2.0",
+    "node-sass": "^4.2.0",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.0",
+    "postcss": "^5.2.10",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-loader": "^1.2.2",
+    "postcss-smart-import": "^0.6.7",
+    "react-addons-test-utils": "^15.4.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "sass-loader": "^4.1.0",
+    "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "webpack-node-externals": "^1.5.4"
   },
   "scripts": {
-    "build": "better-npm-run build",
+    "build:client": "better-npm-run build:client",
+    "build:server": "better-npm-run build:server",
     "deploy": "better-npm-run deploy",
-    "prod": "better-npm-run prod",
-    "dev": "better-npm-run dev",
-    "dev:debug": "better-npm-run dev:debug",
     "start": "better-npm-run start",
+    "dev": "better-npm-run dev",
     "start:server": "better-npm-run start:server",
     "start:client:server": "better-npm-run start:client:server",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch",
-    "lint": "eslint src tests --ext .jsx,.js"
+    "lint": "eslint src tests --ext .jsx,.js",
+    "setup": "better-npm-run setup",
+    "postinstall": "npm run setup"
   },
   "betterScripts": {
-    "start": {
-      "command": "npm run dev",
+    "dev": {
+      "command": "npm-run-all --parallel start:client:server start:server",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "app:*"
       }
     },
-    "start:server": {
-      "command": "babel-node -- src/server/index",
+    "start": {
+      "command": "npm run dev",
       "env": {
         "NODE_ENV": "development",
-        "NODE_PATH": "src",
+        "BABEL_ENV": "server",
         "DEBUG": "app:*"
       }
     },
@@ -154,35 +172,30 @@
         "DEBUG": "app:*"
       }
     },
-    "dev": {
-      "command": "npm-run-all --parallel start:client:server start:server",
+    "start:server": {
+      "command": "nodemon ./node_modules/.bin/babel-node -- src/server/index",
       "env": {
         "NODE_ENV": "development",
+        "NODE_PATH": "src",
         "DEBUG": "app:*"
       }
     },
-    "dev:debug": {
-      "command": "npm-run-all --parallel \"start:client:server -- --debug\" \"start:server -- --debug\"",
-      "env": {
-        "NODE_ENV": "development",
-        "DEBUG": "app:*"
-      }
+    "deploy": {
+      "command": "npm run build:client && npm run build:server"
     },
-    "prod": {
-      "command": "babel-node src/server/index",
+    "build:client": {
+      "command": "./node_modules/.bin/babel-node node_modules/.bin/webpack --progress --config webpack/prod.config",
       "env": {
         "NODE_ENV": "production",
         "NODE_PATH": "src",
         "DEBUG": "app:*"
       }
     },
-    "deploy": {
-      "command": "npm run build && npm run prod"
-    },
-    "build": {
-      "command": "babel-node node_modules/.bin/webpack --progress --config webpack/prod.config",
+    "build:server": {
+      "command": "./node_modules/.bin/babel-node node_modules/.bin/webpack --progress --config webpack/server.config",
       "env": {
         "NODE_ENV": "production",
+        "BABEL_ENV": "server",
         "NODE_PATH": "src",
         "DEBUG": "app:*"
       }
@@ -191,6 +204,12 @@
       "command": "babel-node node_modules/.bin/karma start",
       "env": {
         "NODE_ENV": "test",
+        "DEBUG": "app:*"
+      }
+    },
+    "setup": {
+      "command": "babel-node bin/setup",
+      "env": {
         "DEBUG": "app:*"
       }
     }

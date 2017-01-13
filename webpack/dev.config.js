@@ -1,5 +1,4 @@
 import webpack from 'webpack'
-import path from 'path'
 import _debug from 'debug'
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin'
 
@@ -9,18 +8,15 @@ import projectConfig, { paths } from '../config'
 const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(isomorphicToolsConfig)
 const debug = _debug('app:webpack:config:dev')
 const srcDir = paths('src')
-const nodeModulesDir = paths('nodeModules')
-const globalStylesDir = paths('globalStyles')
-const deps = [
-  'react-router-redux/dist/ReactRouterRedux.min.js',
-  'redux/dist/redux.min.js'
-]
-const cssLoader = [
-  'css?modules',
-  'sourceMap',
-  'importLoaders=1',
-  'localIdentName=[name]__[local]___[hash:base64:5]'
-].join('&')
+const cssLoaderOptions = {
+  modules: true,
+  sourceMap: true,
+  localIdentName: '[name]__[local]___[hash:base64:5]',
+}
+const scssLoaderOptions = {
+  outputStyle: 'expanded',
+  sourceMap: true,
+}
 const {
   SERVER_HOST,
   VENDOR_DEPENDENCIES,
@@ -28,120 +24,118 @@ const {
   __CLIENT__,
   __SERVER__,
   __DEV__,
-  __PROD__,
-  __DEBUG__
+  __PROD__
 } = projectConfig
 
 debug('Create configuration.')
 const config = {
+  cache: true,
   context: paths('base'),
   devtool: 'source-map',
   entry: {
     app: [
+      'react-hot-loader/patch',
       `webpack-hot-middleware/client?reload=true&path=http://${SERVER_HOST}:${WEBPACK_DEV_SERVER_PORT}/__webpack_hmr`,
       paths('entryApp')
     ],
-    vendors: VENDOR_DEPENDENCIES
+    vendor: VENDOR_DEPENDENCIES
   },
   output: {
     path: paths('build'),
-    filename: '[name]-[hash].js',
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     publicPath: `http://${SERVER_HOST}:${WEBPACK_DEV_SERVER_PORT}/build/`
   },
   resolve: {
-    alias: {},
-
-    // Resolve the `./src` directory so we can avoid writing
-    // ../../styles/base.css but styles/base.css
-    root: [srcDir],
-
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx', '.json'],
+    modules: [
+      'src',
+      'node_modules',
+    ],
   },
   module: {
-    noParse: [],
-    preLoaders: [
+    rules: [
       {
         test: /\.js[x]?$/,
-        loader: 'eslint',
+        enforce: 'pre',
+        loader: 'eslint-loader',
         include: [srcDir],
-        query: {
+        options: {
           rules: {
             'no-unused-vars': 'warn'
           }
         }
-      }
-    ],
-    loaders: [
+      },
       {
         test: /\.js[x]?$/,
-        loader: 'babel',
-        exclude: [nodeModulesDir],
+        loader: 'babel-loader',
         include: [srcDir],
-        query: {
-          cacheDirectory: true
+        options: {
+          cacheDirectory: true,
+          babelrc: false,
+          presets: [
+            ['latest', { es2015: { modules: false } }],
+            'react',
+            'stage-0'
+          ],
+          plugins: ['transform-runtime', 'react-hot-loader/babel', 'transform-react-jsx-source'],
         }
       },
+      { test: /\.json$/, loader: 'json-loader' },
       {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: webpackIsomorphicToolsPlugin.regular_expression('styles'),
+        test: /\.css$/,
         include: [srcDir],
-        exclude: [globalStylesDir],
-        loaders: [
-          'style',
-          cssLoader,
-          'postcss'
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { ...cssLoaderOptions, importLoaders: 1 }
+          },
+          'postcss-loader'
         ]
       },
       {
-        test: /common\/styles\/global\/app\.css$/,
+        test: /\.scss$/,
         include: [srcDir],
         loaders: [
-          'style',
-          'css?sourceMap',
-          'postcss'
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { ...cssLoaderOptions, importLoaders: 2 }
+          },
+          'postcss-loader',
+          { loader: 'sass-loader', options: scssLoaderOptions },
         ]
       },
-      {
-        test: /\.(woff|woff2|eot|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file?name=fonts/[name].[ext]'
-      },
+      { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
+      { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2' },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream' },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?prefix=fonts/&name=[path][name].[ext]' },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml' },
       {
         test: webpackIsomorphicToolsPlugin.regular_expression('images'),
-        loader: 'url?limit=10000'
+        loader: 'url-loader',
+        options: {
+          limit: 10240
+        }
       }
-    ]
+    ],
   },
-  postcss: wPack => ([
-    require('postcss-import')({ addDependencyTo: wPack }),
-    require('postcss-url')(),
-    require('postcss-cssnext')()
-  ]),
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('vendors', '[name].[hash].js'),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity,
+    }),
     new webpack.DefinePlugin({
       __CLIENT__,
       __SERVER__,
       __DEV__,
-      __PROD__,
-      __DEBUG__
+      __PROD__
     }),
-    new webpack.optimize.DedupePlugin(),
     webpackIsomorphicToolsPlugin.development()
   ]
 }
-
-// Optimizing rebundling
-deps.forEach(dep => {
-  const depPath = path.resolve(nodeModulesDir, dep)
-
-  config.resolve.alias[dep.split(path.sep)[0]] = depPath
-  config.module.noParse.push(depPath)
-})
 
 export default config

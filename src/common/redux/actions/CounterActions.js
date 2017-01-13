@@ -1,15 +1,20 @@
-import types from '../constants/CounterConstants'
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER'
+export const DECREMENT_COUNTER = 'DECREMENT_COUNTER'
 
-/*
- * action creators
- */
+export const constants = {
+  INCREMENT_COUNTER,
+  DECREMENT_COUNTER,
+}
 
-const increment = () => (
-  { type: types.INCREMENT_COUNTER }
-)
+export const increment = () => ({
+  type: INCREMENT_COUNTER
+})
 
-const decrement = () => (
-  { type: types.DECREMENT_COUNTER }
-)
+export const decrement = () => ({
+  type: DECREMENT_COUNTER
+})
 
-export default { increment, decrement }
+export const actions = {
+  increment,
+  decrement,
+}

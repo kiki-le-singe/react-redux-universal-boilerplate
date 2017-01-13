@@ -6,6 +6,14 @@ I am open to any contributions made by you.
 
 Please check your code using `npm run lint` before submitting your pull requests.
 
+> Some .cssnext.js files will display an error. This is normal because we use sass as default extension language.
+
+
+### Testing
+
+Please check your code using `npm run test` before submitting your pull requests.
+
+
 ### Commit Message Format
 
 Each commit message should include a **type**, a **scope** and a **subject**:
