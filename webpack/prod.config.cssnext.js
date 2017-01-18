@@ -86,7 +86,7 @@ const config = {
       },
       {
         test: /common\/styles\/global\/app\.css$/,
-        include: [globalStylesDir],
+        include: [srcDir],
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
           loader: `css-loader?${cssLoaderOptions()}!postcss-loader`
