@@ -94,7 +94,7 @@ const config = {
       },
       {
         test: /common\/styles\/global\/app\.css$/,
-        include: [globalStylesDir],
+        include: [srcDir],
         loaders: [
           'style-loader',
           {
