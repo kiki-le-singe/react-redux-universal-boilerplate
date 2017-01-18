@@ -1,3 +1,13 @@
+<a name="2.0.2"></a>
+# [2.0.2](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v2.0.1...v2.0.2) (2017-01-18)
+
+
+### Bug Fixes
+
+* **webpack.cssnext:** change include path ([06173ea](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/commit/06173ea))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/compare/v1.8.1...v2.0.0) (2017-01-13)
 
