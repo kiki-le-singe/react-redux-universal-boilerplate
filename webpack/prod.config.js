@@ -13,23 +13,24 @@ const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(isomorphic
 const debug = _debug('app:webpack:config:prod')
 const srcDir = paths('src')
 const cssLoaderOptions = (sass = false) => {
-  const options = [
-    'modules',
-    'sourceMap',
-    'localIdentName=[name]__[local]___[hash:base64:5]'
-  ]
+  const options = {
+    importLoaders: 1,
+    sourceMap: true,
+    modules: true,
+    localIdentName: '[name]__[local]___[hash:base64:5]',
+  }
 
-  options.push(
-    !sass ? 'importLoaders=1' : 'importLoaders=2'
-  )
+  if (sass) {
+    options.importLoaders = 2
+  }
 
-  return options.join('&')
+  return options
 }
-const scssLoaderOptions = [
-  'outputStyle?',
-  'expanded',
-  'sourceMap',
-].join('&')
+const scssLoaderOptions = {
+  outputStyle: 'expanded',
+  expanded: true,
+  sourceMap: true,
+}
 const {
   VENDOR_DEPENDENCIES,
   __CLIENT__,
@@ -83,16 +84,32 @@ const config = {
         test: /\.css$/,
         include: [srcDir],
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: `css-loader?${cssLoaderOptions()}!postcss-loader`
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: cssLoaderOptions(),
+            },
+            'postcss-loader',
+          ],
         })
       },
       {
         test: /\.scss$/,
         include: [srcDir],
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: `css-loader?${cssLoaderOptions(true)}!postcss-loader!sass-loader?${scssLoaderOptions}`
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: cssLoaderOptions(true),
+            },
+            'postcss-loader',
+            {
+              loader: 'sass-loader',
+              options: scssLoaderOptions,
+            },
+          ],
         })
       },
       { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
@@ -111,7 +128,6 @@ const config = {
             loader: 'image-webpack-loader',
             options: {
               bypassOnDebug: true,
-              optimizationLevel: 7,
             }
           }
         ]

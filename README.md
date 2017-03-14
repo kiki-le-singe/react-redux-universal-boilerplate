@@ -24,9 +24,16 @@ An Universal ReactJS/Redux Boilerplate.
 $ git clone https://github.com/kiki-le-singe/react-redux-universal-boilerplate.git <name>
 $ cd <name>
 $ npm install or yarn
+$ on postinstall you should choose between SASS or CSSNEXT
 ```
 
-## Scripts
+## Run
+
+* npm start (dev mod)
+* npm run deploy (prod mod - Runs npm run build:client and npm run build:server scripts)
+* cd readyToDeploy, npm install or yarn then npm start (prod mod)
+
+## Some NPM Script Commands
 
 ### Development
 
@@ -169,6 +176,7 @@ Personally I use [Redux DevTools for Chrome](https://chrome.google.com/webstore/
 * [why-did-you-update](https://github.com/garbles/why-did-you-update)
 * [babel-preset-latest](https://babeljs.io/docs/plugins/preset-latest/)
 * Backend bundle with webpack
+* Code Splitting
 
 
 ## Styles

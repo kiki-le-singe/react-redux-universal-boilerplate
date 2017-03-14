@@ -14,17 +14,17 @@ const debug = _debug('app:webpack:config:dev')
 const srcDir = paths('src')
 const globalStylesDir = paths('globalStyles')
 const cssLoaderOptions = (modules = false) => {
-  const options = [
-    'sourceMap',
-    'importLoaders=1',
-    'localIdentName=[name]__[local]___[hash:base64:5]',
-  ]
-
-  if (modules) {
-    options.push('modules')
+  const options = {
+    sourceMap: true,
+    importLoaders: 1,
+    localIdentName: '[name]__[local]___[hash:base64:5]',
   }
 
-  return options.join('&')
+  if (modules) {
+    options.modules = true
+  }
+
+  return options
 }
 const {
   VENDOR_DEPENDENCIES,
@@ -80,16 +80,28 @@ const config = {
         include: [srcDir],
         exclude: [globalStylesDir],
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: `css-loader?${cssLoaderOptions(true)}!postcss-loader`
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: cssLoaderOptions(true),
+            },
+            'postcss-loader',
+          ],
         })
       },
       {
         test: /common\/styles\/global\/app\.css$/,
         include: [srcDir],
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: `css-loader?${cssLoaderOptions()}!postcss-loader`
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: cssLoaderOptions(),
+            },
+            'postcss-loader',
+          ],
         })
       },
       { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
@@ -108,7 +120,6 @@ const config = {
             loader: 'image-webpack-loader',
             options: {
               bypassOnDebug: true,
-              optimizationLevel: 7,
             }
           }
         ]
