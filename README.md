@@ -12,7 +12,7 @@ An Universal ReactJS/Redux Boilerplate.
 
  * [nodejs](http://nodejs.org/)
 
-> Node `>=6.0.0`
+> Node `>=7.6.0`
 
 ## Optional
 
