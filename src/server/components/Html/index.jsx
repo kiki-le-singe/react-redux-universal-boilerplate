@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { renderToString } from 'react-dom/server'
 import Helmet from 'react-helmet'
 import serialize from 'serialize-javascript'
