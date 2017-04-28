@@ -1,7 +1,8 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const propTypes = {
-  name: React.PropTypes.oneOfType([
+  name: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element
   ])
