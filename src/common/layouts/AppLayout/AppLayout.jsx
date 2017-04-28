@@ -1,7 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
+import { Link, Route } from 'react-router-dom'
 import Helmet from 'react-helmet'
+
+import Home from 'common/views/HomeView'
+import HelloView from 'common/views/HelloView'
+import AboutView from 'common/views/AboutView'
+import CounterView from 'common/views/CounterView' // eslint-disable-line
 
 import config from '../../config'
 
@@ -12,7 +17,7 @@ const defaultProps = {
   children: {}
 }
 
-function AppLayout(props) {
+function AppLayout() {
   return (
     <div className="views">
       <Helmet {...config.app} />
@@ -26,7 +31,10 @@ function AppLayout(props) {
         <li><Link to="/counter">Counter</Link></li>
       </ul>
 
-      {props.children}
+      <Route exact path="/" component={Home} />
+      <Route path="/hello" component={HelloView} />
+      <Route path="/about" component={AboutView} />
+      <Route path="/counter" component={CounterView} />
     </div>
   )
 }
