@@ -48,7 +48,7 @@ const handleRender = (ctx) => {
   } else {
     // Send the rendered page back to the client
     _ctx.type = 'html'
-    _ctx.status = 200
+    _ctx.status = _ctx.status === '404' ? 404 : 200
     _ctx.body = renderFullPage(component, store)
   }
 }
