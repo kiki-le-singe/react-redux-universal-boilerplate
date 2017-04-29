@@ -23,7 +23,7 @@ const handleRender = (ctx) => {
   }
 
   // Compile an initial state
-  const preloadedState = {}
+  const preloadedState = { counter: 2 }
   // Create a new Redux store instance
   const store = configureStore(preloadedState)
 
