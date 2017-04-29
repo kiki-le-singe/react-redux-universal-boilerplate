@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
 import Helmet from 'react-helmet'
 
 import Home from 'common/views/HomeView'
 import HelloView from 'common/views/HelloView'
 import AboutView from 'common/views/AboutView'
 import CounterView from 'common/views/CounterView' // eslint-disable-line
+import NotFoundRouteView from 'common/views/NotFoundRouteView'
 
 import config from '../../config'
 
@@ -31,10 +32,13 @@ function AppLayout() {
         <li><Link to="/counter">Counter</Link></li>
       </ul>
 
-      <Route exact path="/" component={Home} />
-      <Route path="/hello" component={HelloView} />
-      <Route path="/about" component={AboutView} />
-      <Route path="/counter" component={CounterView} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/hello" component={HelloView} />
+        <Route path="/about" component={AboutView} />
+        <Route path="/counter" component={CounterView} />
+        <Route component={NotFoundRouteView} />
+      </Switch>
     </div>
   )
 }
