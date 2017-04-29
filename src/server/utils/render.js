@@ -2,6 +2,7 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import createHistory from 'history/createMemoryHistory'
 
 import AppLayout from 'common/layouts/AppLayout'
 import configureStore from 'common/redux/store'
@@ -24,8 +25,10 @@ const handleRender = (ctx) => {
 
   // Compile an initial state
   const preloadedState = { counter: 2 }
+  // Create a history of your choosing (we're using a memory history in this case)
+  const history = createHistory()
   // Create a new Redux store instance
-  const store = configureStore(preloadedState)
+  const store = configureStore(history, preloadedState)
 
   const _ctx = ctx
   const { url } = _ctx
