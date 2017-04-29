@@ -43,12 +43,8 @@ const handleRender = (ctx) => {
   )
 
   if (context.url) {
-    // res.writeHead(301, {
-    //   Location: context.url
-    // })
-    // res.status(301).setHeader('Location', routerContext.url);
-    // res.end()
     _ctx.status = 301
+    _ctx.header = { Location: context.url }
   } else {
     // Send the rendered page back to the client
     _ctx.type = 'html'
