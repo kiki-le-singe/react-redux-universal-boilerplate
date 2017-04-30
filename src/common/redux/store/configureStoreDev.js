@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 
-import logger from '../middleware/logger'
+import logger from 'redux-logger'
 import rootReducer from '../reducers'
 
 const configureStoreDev = (history = {}, preloadedState = {}) => {
