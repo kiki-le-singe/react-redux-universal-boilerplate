@@ -1,11 +1,11 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { createMemoryHistory, match, RouterContext } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
+import { StaticRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import createHistory from 'history/createMemoryHistory'
 
+import AppLayout from 'common/layouts/AppLayout'
 import configureStore from 'common/redux/store'
-import routes from 'common/routes'
 import Html from 'server/components/Html'
 
 const renderFullPage = (component, store) => {
@@ -24,37 +24,36 @@ const handleRender = (ctx) => {
   }
 
   // Compile an initial state
-  const preloadedState = {}
+  const preloadedState = { counter: 2 }
+  // Create a history of your choosing (we're using a memory history in this case)
+  const history = createHistory()
   // Create a new Redux store instance
-  const store = configureStore(preloadedState)
+  const store = configureStore(history, preloadedState)
 
   const _ctx = ctx
-  const { url: location } = _ctx
-  const memoryHistory = createMemoryHistory(_ctx.url)
-  const history = syncHistoryWithStore(memoryHistory, store)
+  const { url } = _ctx
+  const context = {}
 
-  match({ history, routes: routes(store), location }, (error, redirectLocation, renderProps) => {
-    if (error) {
-      _ctx.status = 500
-      _ctx.body = error.message
-    } else if (redirectLocation) {
-      _ctx.status = 302
-      _ctx.redirect(`${redirectLocation.pathname}${redirectLocation.search}`)
-    } else if (renderProps) {
-      const component = (
-        <Provider store={store}>
-          <RouterContext {...renderProps} />
-        </Provider>
-      )
-      // Send the rendered page back to the client
-      _ctx.type = 'html'
-      _ctx.status = 200
-      _ctx.body = renderFullPage(component, store)
-    } else {
-      _ctx.status = 404
-      _ctx.body = 'Not found'
-    }
-  })
+  const component = (
+    <Provider store={store}>
+      <StaticRouter
+        location={url}
+        context={context}
+      >
+        <AppLayout />
+      </StaticRouter>
+    </Provider>
+  )
+
+  if (context.url) {
+    _ctx.status = 301
+    _ctx.header = { Location: context.url }
+  } else {
+    // Send the rendered page back to the client
+    _ctx.type = 'html'
+    _ctx.status = _ctx.status === '404' ? 404 : 200
+    _ctx.body = renderFullPage(component, store)
+  }
 }
 
 export default handleRender

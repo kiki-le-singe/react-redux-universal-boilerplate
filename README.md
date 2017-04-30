@@ -137,14 +137,14 @@ You should just install an extension [Redux DevTools Extension](https://github.c
 Personally I use [Redux DevTools for Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
 > Are there any other alternatives? Sure!
-> You can also use [Redux DevTools](https://github.com/gaearon/redux-devtools). And there is also a small logger middleware `(~/src/common/redux/middleware/logger)` to log all actions and states after they are dispatched.
+> You can also use [Redux DevTools](https://github.com/gaearon/redux-devtools). And there is also a small logger middleware [`redux-logger`](https://github.com/evgenyrodionov/redux-logger) to log all actions and states after they are dispatched.
 
 
 ## Features
 * [react](https://github.com/facebook/react)
 * [redux](https://github.com/reactjs/redux)
 * [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension)
-* [react-router](https://github.com/reactjs/react-router)
+* [react-router 4](https://github.com/reactjs/react-router)
 * [react-router-redux](https://github.com/reactjs/react-router-redux)
 * [react-helmet](https://github.com/nfl/react-helmet)
 * [React Hot Loader 3](https://github.com/gaearon/react-hot-loader)
@@ -176,7 +176,7 @@ Personally I use [Redux DevTools for Chrome](https://chrome.google.com/webstore/
 * [why-did-you-update](https://github.com/garbles/why-did-you-update)
 * [babel-preset-latest](https://babeljs.io/docs/plugins/preset-latest/)
 * Backend bundle with webpack
-* Code Splitting
+* Code Splitting ( ** for now doesn't work with React Router 4. You can use an old version of this starter [`2.0.5`](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/releases/tag/2.0.5) **)
 
 
 ## Styles

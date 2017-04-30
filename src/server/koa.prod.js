@@ -23,7 +23,7 @@ app.use(compress({
 
 app.use(convert(htmlMinifier({
   caseSensitive: true,
-  removeComments: true,
+  // removeComments: true,
   removeCommentsFromCDATA: true,
   removeCDATASectionsFromCDATA: true,
   collapseWhitespace: true,
