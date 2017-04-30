@@ -35,6 +35,16 @@ $ on postinstall you should choose between SASS or CSSNEXT
 
 ## Some NPM Script Commands
 
+
+### Storybook
+
+```shell
+$ npm run storybook
+```
+
+Starts Storybook on `http://localhost:6006/``
+
+
 ### Development
 
 ```shell
@@ -176,7 +186,8 @@ Personally I use [Redux DevTools for Chrome](https://chrome.google.com/webstore/
 * [why-did-you-update](https://github.com/garbles/why-did-you-update)
 * [babel-preset-latest](https://babeljs.io/docs/plugins/preset-latest/)
 * Backend bundle with webpack
-* Code Splitting ( ** for now doesn't work with React Router 4. You can use an old version of this starter [`2.0.5`](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/releases/tag/2.0.5) **)
+* Code Splitting ( ** for now doesn't work with React Router 4. You can use an old version of this starter [`2.0.5`](https://github.com/kiki-le-singe/react-redux-universal-boilerplate/releases/tag/2.0.5) ** )
+* [Storybook](https://github.com/storybooks/storybook)
 
 
 ## Styles
